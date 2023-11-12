@@ -1,0 +1,134 @@
+.page {
+  background-color: black;
+  color: white;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+}
+
+.page__section {
+  max-width: 880px;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+
+.page__content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 1100px) {
+  .page__section {
+    margin: 0 20px;
+    max-width: calc(100% - 40px);
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .header {
+    width: 126px;
+    height: 24px;
+    margin-top: 28px;
+    margin-right: 167px;
+    margin-left: 27px;
+  }
+
+  .profile {
+    flex-direction: column;
+  }
+
+  .profile__info {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    padding-top: 26.25px;
+  }
+
+  .profile__description {
+    width: 100%;
+    text-align: center;
+    padding-top: 14px;
+  }
+
+  .profile__add-button {
+    margin: 0;
+    width: 92%;
+    margin-top: 36px;
+    margin-bottom: 36px;
+  }
+
+  .card {
+    display: flex;
+  }
+
+  .card__list {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    max-width: 100%;
+  }
+
+  .footer {
+    margin: 0;
+    padding-top: 48px;
+    padding-bottom: 36px;
+    padding-left: 19px;
+    font-size: 14px;
+    line-height: 1.2;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .footer__text {
+    margin-left: 32px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .profile {
+    flex-direction: column;
+  }
+
+  .profile__info {
+    display: flex;
+    flex-wrap: no-wrap;
+    width: 100%;
+    justify-content: center;
+    padding-top: 26.25px;
+  }
+
+  .profile__description {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 36px;
+    padding-top: 14px;
+  }
+
+  .profile__add-button {
+    margin: 0;
+    width: 100%;
+    padding-top: 36px;
+    margin-bottom: 36px;
+  }
+
+  .footer {
+    margin: 0;
+    padding-top: 48px;
+    padding-bottom: 36px;
+    padding-left: 19px;
+    font-size: 14px;
+    line-height: 1.2;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .footer__text {
+    margin-left: 80px;
+  }
+}

@@ -1,0 +1,9 @@
+.footer {
+    padding: 67px 762px 60px 200px;
+  }
+  
+  .footer__text {
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    opacity: 50%;
+  }
