@@ -53,3 +53,15 @@
   height: 18px;
   width: 21px;
 }
+
+@media screen and (max-width: 680px) {
+  .card {
+    display: flex;
+  }
+
+  .card__list {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    max-width: 100%;
+  }
+}
