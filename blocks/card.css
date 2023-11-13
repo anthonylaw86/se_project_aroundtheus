@@ -1,4 +1,4 @@
-.cards {
+.card {
   font-family: Inter, Arial, Helvetica, sans-serif;
   font-weight: 900;
   margin-top: 45px;
@@ -13,7 +13,7 @@
   margin: 0;
 }
 
-.card {
+.cards {
   display: flex;
   flex-direction: column;
   list-style: none;
