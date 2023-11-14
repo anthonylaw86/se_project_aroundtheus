@@ -21,6 +21,13 @@
   margin-left: 18px;
   margin-top: 15px;
   margin-bottom: 9px;
+  border-color: #fff;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.profile__edit-button:hover {
+  cursor: pointer;
 }
 
 .profile__add-button {
@@ -28,6 +35,14 @@
   width: 150px;
   height: 50px;
   margin-left: auto;
+  border-color: #fff;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 2px;
+}
+
+.profile__add-button:hover {
+  cursor: pointer;
 }
 
 .profile__title {
@@ -36,6 +51,10 @@
   font-weight: 500;
   grid-area: title;
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 400px;
 }
 
 .profile__description {
@@ -44,6 +63,10 @@
   font-weight: 400;
   grid-area: description;
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 415px;
 }
 
 .profile__image {
@@ -71,6 +94,10 @@
     width: 100%;
     text-align: center;
     padding-top: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 415px;
   }
 
   .profile__add-button {
@@ -102,6 +129,10 @@
     width: 100%;
     text-align: center;
     padding-top: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 500px;
   }
 
   .profile__add-button {
@@ -114,44 +145,18 @@
   }
 }
 
-@media screen and (max-width: 1100px) {
-  .profile {
-    flex-direction: column;
-  }
-
-  .profile__info {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: center;
-    padding-top: 26.25px;
-  }
-
-  .profile__description {
-    width: 100%;
-    text-align: center;
-    padding-bottom: 36px;
-    padding-top: 14px;
-  }
-
-  .profile__add-button {
-    margin: 0;
-    width: 83%;
-    padding-top: 36px;
-    margin-bottom: 36px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
 @media screen and (max-width: 480px) {
   .profile {
-    flex-direction: column;
+    flex-direction: flex;
+  }
+
+  .profile__title {
+    font-size: 22px;
   }
 
   .profile__info {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     width: 100%;
     justify-content: center;
     padding-top: 26.25px;
@@ -162,6 +167,11 @@
     text-align: center;
     padding-bottom: 36px;
     padding-top: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 440px;
+    font-size: 14px;
   }
 
   .profile__add-button {

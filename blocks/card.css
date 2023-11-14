@@ -1,4 +1,4 @@
-.card {
+.cards {
   font-family: Inter, Arial, Helvetica, sans-serif;
   font-weight: 900;
   margin-top: 45px;
@@ -13,7 +13,7 @@
   margin: 0;
 }
 
-.cards {
+.card {
   display: flex;
   flex-direction: column;
   list-style: none;
@@ -24,6 +24,7 @@
   height: 282px;
   width: 282px;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 .card__description {
@@ -44,7 +45,7 @@
   font-weight: 900;
   line-height: 1.2;
   text-overflow: ellipsis;
-  white-space: no-wrap;
+  white-space: nowrap;
   overflow: hidden;
   margin: 0;
 }
@@ -53,6 +54,11 @@
   background: transparent url(../images/like-inactive.svg) center no-repeat;
   height: 18px;
   width: 21px;
+  border: none;
+}
+
+.card__like-button:hover {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 680px) {
