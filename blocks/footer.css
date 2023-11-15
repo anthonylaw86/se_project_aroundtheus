@@ -36,35 +36,17 @@
   }
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 620px) {
   .footer {
     font-size: 14px;
     line-height: 1.2;
-    display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
-    max-width: 600px;
-  }
-
-  .footer__text {
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .footer {
+    max-width: 282px;
     margin: 0 auto;
-    font-size: 14px;
-    line-height: 1.2;
-    display: flex;
-    flex-direction: column;
     padding-top: 48px;
     padding-bottom: 36px;
-    max-width: 282px;
-  }
-
-  .footer__text {
-    font-size: 14px;
   }
 }
