@@ -154,9 +154,12 @@
     font-size: 22px;
   }
 
+  .profile__image {
+    margin-right: 0;
+  }
+
   .profile__info {
     display: flex;
-    flex-wrap: nowrap;
     width: 100%;
     justify-content: center;
     padding-top: 26.25px;
@@ -166,7 +169,7 @@
     width: 100%;
     text-align: center;
     padding-bottom: 36px;
-    padding-top: 14px;
+    padding-top: 0;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
