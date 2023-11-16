@@ -26,14 +26,12 @@
   .header {
     margin: 0;
     max-width: 100%;
-    width: 90vw;
-    padding-top: 28px;
-    padding-left: 27px;
-    padding-bottom: 32px;
   }
 
   .header__logo {
     width: 126px;
     height: 24px;
+    padding-top: 28px;
+    padding-left: 27px;
   }
 }
