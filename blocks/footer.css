@@ -7,6 +7,9 @@
   margin-left: auto;
   max-width: 282px;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  max-width: 880px;
 }
 
 .footer__text {
@@ -15,15 +18,10 @@
   color: #545454;
   display: flex;
   flex-direction: column;
+  margin: 0;
 }
 
 @media screen and (max-width: 1100px) {
-  .footer {
-    display: flex;
-    flex-direction: row;
-    max-width: 880px;
-  }
-
   .footer__text {
     margin-right: auto;
     margin-top: 0;
