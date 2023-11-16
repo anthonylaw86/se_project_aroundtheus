@@ -38,8 +38,6 @@
 
 @media screen and (max-width: 620px) {
   .footer {
-    font-size: 14px;
-    line-height: 1.2;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: flex-start;
@@ -47,5 +45,10 @@
     margin: 0 auto;
     padding-top: 48px;
     padding-bottom: 36px;
+  }
+
+  .footer__text {
+    font-size: 14px;
+    line-height: 1.2;
   }
 }
