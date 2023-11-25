@@ -95,7 +95,7 @@
   }
 
   .modal__container {
-    padding: 25px 22px;
+    padding: 22px;
     max-width: 282px;
     max-height: 322px;
   }
@@ -125,7 +125,8 @@
   }
 
   .modal__button {
-    max-width: 238px;
-    max-height: 46px;
+    width: 238px;
+    height: 46px;
+    padding: 0;
   }
 }
