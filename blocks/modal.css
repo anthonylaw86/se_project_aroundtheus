@@ -91,7 +91,7 @@
   .modal__close {
     width: 26px;
     height: 26px;
-    left: calc(100% + 0);
+    left: calc(100% - 30px);
   }
 
   .modal__container {
