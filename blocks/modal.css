@@ -125,8 +125,7 @@
   }
 
   .modal__button {
-    width: 238px;
-    height: 46px;
+    width: 100%;
     padding: 0;
   }
 }
