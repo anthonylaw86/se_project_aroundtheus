@@ -37,7 +37,7 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 const profileEditForm = document.querySelector(".modal__form");
-const cardListEl = document.querySelector(".card__list");
+const cardListEl = document.querySelector(".card__lists");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 
@@ -53,7 +53,7 @@ function getCardElement(cardData) {
   const cardTitleEl = cardElement.querySelector(".card__title");
 
   cardTitleEl.textContent = cardData.name;
-  cardImageEl.textContent = cardData.link;
+  cardImageEl.src = cardData.link;
 
   return cardElement;
 }
