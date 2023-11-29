@@ -21,7 +21,6 @@
   padding: 36px;
   border-radius: 10px;
   position: relative;
-  max-width: 430px;
 }
 
 .modal__close {
@@ -95,29 +94,29 @@
     width: 26px;
     height: 26px;
     left: calc(100% - 30px);
+    bottom: calc(100% + 13.62px);
   }
 
   .modal__container {
     padding: 25px 22px;
-    max-width: 282px;
-    contain: content;
   }
 
   .modal__heading {
     font-size: 18px;
     margin-bottom: 75px;
+    width: 100%;
   }
 
   .modal__input {
     margin-bottom: 30px;
     padding-bottom: 13px;
-    max-width: 100%;
+    width: 100%;
   }
 
   .modal__button {
     margin-top: 15px;
     font-size: 14px;
-    max-width: 100%;
+   width: 100%;
   }
 }
 
@@ -130,6 +129,6 @@
 
 @media screen and (max-width: 320px) {
   .modal {
-    max-width: calc(100% - 19px);
+    /*.modal: calc(100% - 19px);
   }
 }
