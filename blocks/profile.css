@@ -127,10 +127,6 @@
 }
 
 @media screen and (max-width: 480px) {
-  .profile {
-    flex-direction: flex;
-  }
-
   .profile__title {
     font-size: 22px;
     max-width: 200px;
