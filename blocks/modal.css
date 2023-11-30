@@ -21,6 +21,7 @@
   padding: 36px;
   border-radius: 10px;
   position: relative;
+  height: 330px;
 }
 
 .modal__close {
@@ -73,7 +74,7 @@
 .modal__button {
   background-color: #000;
   color: #fff;
-  font-family: Inter, Arial, Arial, Helvetica, sans-serif;
+  font-family: Inter, Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 400;
   text-align: center;
@@ -99,6 +100,7 @@
 
   .modal__container {
     padding: 25px 22px;
+    height: 322px;
   }
 
   .modal__heading {
@@ -116,19 +118,12 @@
   .modal__button {
     margin-top: 15px;
     font-size: 14px;
-   width: 100%;
+    width: 100%;
   }
 }
 
 @media screen and (max-width: 400px) {
   .modal__button {
-    width: 100%;
     padding: 0;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .modal {
-    /*.modal: calc(100% - 19px);
   }
 }
