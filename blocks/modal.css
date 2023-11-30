@@ -46,7 +46,7 @@
   font-weight: 900;
   line-height: 29.05px;
   margin-top: 0;
-  margin-bottom: 52px;
+  margin-bottom: 50px;
 }
 
 .modal__form {
@@ -65,10 +65,10 @@
   border-right: 0;
   border-color: rgba(0, 0, 0, 0.2);
   width: 358px;
-
+  border-width: 1px;
   opacity: 1;
   padding-top: 0;
-  padding-bottom: 13.26px;
+  padding-bottom: 10.26px;
   margin-bottom: 29px;
 }
 
@@ -111,7 +111,6 @@
 
   .modal__input {
     margin-bottom: 30px;
-    padding-bottom: 13px;
     width: 100%;
   }
 
