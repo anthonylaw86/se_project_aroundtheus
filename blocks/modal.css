@@ -91,6 +91,24 @@
   opacity: 0.8;
 }
 
+.modal__image-container {
+  position: relative;
+  margin: auto;
+}
+
+.modal__image-preview {
+  background-image: url();
+  width: 433px;
+  height: 540px;
+}
+
+.modal__image-title {
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+  background-color: transparent;
+}
+
 @media screen and (max-width: 630px) {
   .modal__close {
     width: 26px;

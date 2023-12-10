@@ -30,6 +30,7 @@ const initialCards = [
 const cardsWrap = document.querySelector(".cards__list");
 const editProfileModal = document.querySelector("#profile-edit-modal");
 const addCardModal = document.querySelector("#add-card-modal");
+const previewImageModal = document.querySelector("#preview-image-modal");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const profileFormElement = editProfileModal.querySelector(".modal__form");
@@ -49,6 +50,9 @@ const profileEditCloseButton = editProfileModal.querySelector(
 const addCardModalCloseButton = addCardModal.querySelector(
   "#modal-close-button"
 );
+const previewImageModalCloseButton = previewImageModal.querySelector(
+  "#modal-close-button"
+);
 
 /*FORM DATA*/
 
@@ -65,6 +69,8 @@ const cardURLInput = addCardFormElement.querySelector(".modal__input_type_url");
 
 function closeModal() {
   editProfileModal.classList.remove("modal_opened");
+  addCardModal.classList.remove("modal_opened");
+  previewImageModal.classList.remove("modal_opened");
 }
 
 function getCardElement(data) {
@@ -72,9 +78,18 @@ function getCardElement(data) {
   const cardImage = cardElement.querySelector(".card__image");
   const cardTitle = cardElement.querySelector(".card__title");
   const likeButton = cardElement.querySelector(".card__like-button");
+  const trashButton = cardElement.querySelector(".card__trash-button");
 
   likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle(".card__like-button_active");
+    likeButton.classList.toggle("card__like-button_active");
+  });
+
+  trashButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
+
+  cardImage.addEventListener("click", () => {
+    openModal(previewImageModal);
   });
 
   cardTitle.textContent = data.name;
@@ -128,6 +143,11 @@ addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
 initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
 
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
+
 addCardModalCloseButton.addEventListener("click", () =>
   closeModal(addCardModal)
+);
+
+previewImageModalCloseButton.addEventListener("click", () =>
+  closeModal(previewImageModal)
 );

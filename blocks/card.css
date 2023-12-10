@@ -13,6 +13,17 @@
   object-fit: cover;
 }
 
+.card__trash-button {
+  position: absolute;
+  background-image: url(../images/Trash.svg);
+  margin-top: 15px;
+  margin-left: 250px;
+  width: 18px;
+  height: 19px;
+  border: none;
+  padding: 0;
+}
+
 .card__description {
   display: flex;
   background: white;

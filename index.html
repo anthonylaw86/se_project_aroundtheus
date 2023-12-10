@@ -102,9 +102,24 @@
         </form>
       </div>
     </div>
+
+    <!--PREVIEW IMAGE MODAL-->
+    <div class="modal" id="preview-image-modal">
+      <div class="modal__image-container">
+        <button
+          class="modal__close"
+          id="modal-close-button"
+          type="button"
+        ></button>
+        <img src="" class="modal__image-preview" alt="" />
+        <p class="modal__image-title">title</p>
+      </div>
+    </div>
+
     <template id="card-template">
       <li class="card">
         <img src="" class="card__image" alt="" />
+        <button class="card__trash-button"></button>
         <div class="card__description">
           <h2 class="card__title"></h2>
           <button type="button" class="card__like-button"></button>
