@@ -24,6 +24,11 @@
   padding: 0;
 }
 
+.card__trash-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
 .card__description {
   display: flex;
   background: white;
