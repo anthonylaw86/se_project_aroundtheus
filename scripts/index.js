@@ -52,10 +52,10 @@ const profileEditCloseButton = editProfileModal.querySelector(
   "#modal-close-button"
 );
 const addCardModalCloseButton = addCardModal.querySelector(
-  "#modal-close-button"
+  "#modal-add-card-close-button"
 );
 const previewImageModalCloseButton = previewImageModal.querySelector(
-  "#modal-close-button"
+  "#modal-preview-image-close-button"
 );
 
 /*FORM DATA*/
