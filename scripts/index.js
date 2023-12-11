@@ -39,6 +39,10 @@ const cardListEl = document.querySelector(".cards__list");
 const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
+const previewImageElement = previewImageModal.querySelector(".modal__image");
+const previewImageCaptionElement = previewImageModal.querySelector(
+  ".modal__image-title"
+);
 
 /*BUTTONS*/
 
@@ -89,6 +93,9 @@ function getCardElement(data) {
   });
 
   cardImage.addEventListener("click", () => {
+    previewImageElement.src = data.link;
+    previewImageElement.alt = data.name;
+    previewImageCaptionElement.textContent = data.name;
     openModal(previewImageModal);
   });
 
