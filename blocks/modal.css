@@ -45,7 +45,7 @@
   border: none;
 }
 
-.modal__image-close {
+/*.modal__image-close {
   width: 40px;
   height: 40px;
   position: absolute;
@@ -57,7 +57,7 @@
   background-color: transparent;
   background-size: contain;
   border: none;
-}
+}*/
 
 .modal__heading {
   color: #000;
@@ -140,9 +140,11 @@
     bottom: calc(100% + 13.62px);
   }
 
-  .modal__image-close {
+  .modal__close_preview-image {
     width: 30px;
     height: 30px;
+    bottom: calc(100% + 5px);
+    left: calc(100% + 5px);
   }
 
   .modal__container {
