@@ -78,8 +78,8 @@ const cardURLInput = addCardFormElement.querySelector(".modal__input_type_url");
 // previewImageModal.classList.remove("modal_opened");
 //}
 
-function closeModal(popup) {
-  popup.classList.remove("modal__opened");
+function closeModal(closeButtons) {
+  closeButtons.classList.remove("modal__opened");
 }
 
 function getCardElement(data) {
@@ -162,11 +162,11 @@ addCardModalCloseButton.addEventListener("click", () =>
   closeModal(addCardModal)
 );
 
-//previewImageModalCloseButton.addEventListener("click", () =>
-//closeModal(previewImageModal)
-//);
+previewImageModalCloseButton.addEventListener("click", () =>
+  closeModal(previewImageModal)
+);
 
 closeButtons.forEach((button) => {
-  const popup = button.closest(".popup");
-  button.addEventListener("click", () => closeModal(popup));
+  const popup = button.closest("popup");
+  closeButtons.addEventListener("click", () => closeModal());
 });
