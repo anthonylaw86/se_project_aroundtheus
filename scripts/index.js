@@ -57,7 +57,6 @@ const addCardModalCloseButton = addCardModal.querySelector(
 const previewImageModalCloseButton = previewImageModal.querySelector(
   "#modal-preview-image-close-button"
 );
-const closeButtons = document.querySelectorAll(".modal__close");
 
 /*FORM DATA*/
 
@@ -72,14 +71,8 @@ const cardURLInput = addCardFormElement.querySelector(".modal__input_type_url");
 
 /*FUNCTIONS*/
 
-//function closeModal() {
-//editProfileModal.classList.remove("modal_opened");
-// addCardModal.classList.remove("modal_opened");
-// previewImageModal.classList.remove("modal_opened");
-//}
-
-function closeModal(closeButtons) {
-  closeButtons.classList.remove("modal__opened");
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
 }
 
 function getCardElement(data) {
@@ -165,8 +158,3 @@ addCardModalCloseButton.addEventListener("click", () =>
 previewImageModalCloseButton.addEventListener("click", () =>
   closeModal(previewImageModal)
 );
-
-closeButtons.forEach((button) => {
-  const popup = button.closest("popup");
-  closeButtons.addEventListener("click", () => closeModal());
-});
