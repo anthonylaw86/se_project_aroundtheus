@@ -52,14 +52,18 @@
           type="button"
         ></button>
         <h2 class="modal__heading">Edit Profile</h2>
-        <form class="modal__form">
+        <form class="modal__form" id="edit-profile-form">
           <input
             type="text"
             name="title"
             id="profile-title-input"
             placeholder="Name"
             class="modal__input"
+            minlength="2"
+            maxlength="40"
+            required
           />
+          <span class="modal__error" id="profile-title-input-error"></span>
 
           <input
             type="text"
@@ -67,7 +71,14 @@
             id="profile-description-input"
             placeholder="Description"
             class="modal__input"
+            minlength="2"
+            maxlength="200"
+            required
           />
+          <span
+            class="modal__error"
+            id="profile-description-input-error"
+          ></span>
           <button class="modal__button" type="submit">Save</button>
         </form>
       </div>
@@ -89,16 +100,28 @@
             id="card-title-input"
             placeholder="Title"
             class="modal__input modal__input_type_title"
+            minlength="1"
+            maxlength="30"
+            required
           />
+          <span class="modal__error" id="card-title-input-error"></span>
 
           <input
-            type="text"
+            type="url"
             name="url"
             id="card-url-input"
             placeholder="Image URL"
             class="modal__input modal__input_type_url"
+            required
           />
-          <button class="modal__button" type="submit">Save</button>
+          <span class="modal__error" id="card-url-input-error"></span>
+          <button
+            class="modal__button modal__button_disabled"
+            type="submit"
+            disabled
+          >
+            Save
+          </button>
         </form>
       </div>
     </div>
@@ -128,5 +151,6 @@
     </template>
 
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validation.js"></script>
   </body>
 </html>
