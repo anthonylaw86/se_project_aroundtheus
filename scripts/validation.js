@@ -16,11 +16,9 @@ function checkInputValidity(formEl, inputEl, options) {
   if (!inputEl.validity.valid) {
     showInputError(formEl, inputEl, options);
     inputEl.style.borderColor = "red";
-    disableButton(inputEls, options);
   } else {
     hideInputError(formEl, inputEl, options);
     inputEl.style.borderColor = "black";
-    enableButton(inputEls, options);
   }
 }
 
@@ -80,7 +78,7 @@ const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",
-  inactiveButtonClass: ".modal__button_disabled",
+  inactiveButtonClass: "modal__button_disabled",
   inputErrorClass: ".modal__input_type_error",
   errorClass: ".modal__error_visible",
 };

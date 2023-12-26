@@ -43,6 +43,7 @@ const previewImageElement = previewImageModal.querySelector(".modal__image");
 const previewImageCaptionElement = previewImageModal.querySelector(
   ".modal__image-title"
 );
+const modalPopup = document.querySelectorAll(".modal");
 
 /*BUTTONS*/
 
@@ -111,6 +112,31 @@ function openModal(modal) {
 function renderCard(cardData, wrapper) {
   const cardElement = getCardElement(cardData);
   wrapper.prepend(cardElement);
+}
+
+function toggleModal() {
+  debugger;
+  if (modalPopup.style.display === none || modalPopup.style.display === "") {
+    modalPopup.style.display = "block";
+    document.addEventListener("click", closeModalOutside);
+  } else {
+    modalPopup.style.display = none;
+    document.removeEventListener("click", closeModalOutside);
+  }
+}
+
+function closeModalOutside(e) {
+  if (!modalPopup.contains(e.target)) {
+    modalPopup.style.display = none;
+    document.removeEventListener("click", closeModalOutside);
+  }
+}
+
+function closeModalEscape(evt) {
+  if (evt.key === "Esc") {
+    const openModal = document.querySelector(".modal_opened");
+    closeModal(openModal);
+  }
 }
 
 /*EVENT HANDLERS*/
