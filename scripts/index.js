@@ -75,6 +75,7 @@ function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.addEventListener("keydown", closeModalEscape);
   modal.addEventListener("mousedown", closeModalOutside);
+  modal.removeEventListener("mousedown", closeModalOutside);
 }
 
 function getCardElement(data) {
