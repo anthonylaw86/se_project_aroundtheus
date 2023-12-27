@@ -78,6 +78,7 @@
 .modal__input_type_error {
   margin-top: 13px;
   margin-bottom: 0;
+  border-color: #ff0000;
 }
 
 .modal__button {
@@ -94,8 +95,8 @@
   border-radius: 2px;
 }
 
-.modal__button_disabled {
-  opacity: 0.02;
+.modal__button:disabled {
+  opacity: 0.8;
 }
 
 .modal__button:hover {

@@ -43,7 +43,6 @@ const previewImageElement = previewImageModal.querySelector(".modal__image");
 const previewImageCaptionElement = previewImageModal.querySelector(
   ".modal__image-title"
 );
-const modalPopup = document.querySelectorAll(".modal");
 
 /*BUTTONS*/
 
@@ -137,7 +136,6 @@ function handleProfileFormSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  e.target.reset();
   closeModal(editProfileModal);
 }
 
