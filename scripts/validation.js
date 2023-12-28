@@ -15,26 +15,19 @@ function hideInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
 function checkInputValidity(formEl, inputEl, options) {
   if (!inputEl.validity.valid) {
     showInputError(formEl, inputEl, options);
-    showInputError.classList.add(inputErrorClass);
   } else {
     hideInputError(formEl, inputEl, options);
-    hideInputError.classList.remove(inputErrorClass);
   }
 }
 
 function disableButton(inputEl, submitButton, { inactiveButtonClass }) {
-  if (!inputEl.validity.valid) {
-    submitButton.classList.add(inactiveButtonClass);
-    submitButton.disabled = true;
-    return;
-  }
+  submitButton.classList.add(inactiveButtonClass);
+  submitButton.disabled = true;
 }
 
 function enableButton(inputEl, submitButton, { inactiveButtonClass }) {
-  if (inputEl.validity.valid) {
-    submitButton.classList.remove(inactiveButtonClass);
-    submitButton.disabled = false;
-  }
+  submitButton.classList.remove(inactiveButtonClass);
+  submitButton.disabled = false;
 }
 
 function hasInvalidInput(inputList) {
