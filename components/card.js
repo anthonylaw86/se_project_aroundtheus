@@ -65,9 +65,9 @@ class Card {
   }
 
   _handleImageClick() {
-    previewImageElement.src = data.link;
-    previewImageElement.alt = data.name;
-    previewImageCaptionElement.textContent = data.name;
+    previewImageElement.src = this._link;
+    previewImageElement.alt = this._name;
+    previewImageCaptionElement.textContent = this._name;
     openModal(previewImageModal);
   }
 
@@ -86,6 +86,8 @@ class Card {
       ".card__image"
     ).style.backgroundImage = `url(${this._link})`;
     this._element.querySelector(".card__title").textContent = this._name;
+
+    return this._element;
   }
 }
 

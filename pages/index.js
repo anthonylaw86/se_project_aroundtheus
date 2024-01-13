@@ -33,9 +33,6 @@ const cardData = {
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
 
-const card = new Card(cardData, "#card-template");
-card.getView();
-
 /*ELEMENTS*/
 
 const cardsWrap = document.querySelector(".cards__list");
@@ -79,8 +76,6 @@ const cardTitleInput = addCardFormElement.querySelector(
   ".modal__input_type_title"
 );
 const cardURLInput = addCardFormElement.querySelector(".modal__input_type_url");
-
-const cardSelector = document.querySelector("#card-template");
 
 const validationSettings = {
   inputSelector: ".modal__input",
@@ -144,7 +139,7 @@ function openModal(modal) {
 
 function renderCard(cardData, wrapper) {
   const cardElement = getCardElement(cardData);
-  const card = new Card(cardData, cardSelector);
+  const card = new Card(cardData, "#card-template");
   wrapper.prepend(card.getView());
 }
 
