@@ -28,11 +28,6 @@ const initialCards = [
   },
 ];
 
-const cardData = {
-  name: "Yosemite Valley",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-};
-
 /*ELEMENTS*/
 
 const cardsWrap = document.querySelector(".cards__list");
@@ -104,19 +99,6 @@ function closeModal(modal) {
 
 function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
-  const cardImage = cardElement.querySelector(".card__image");
-  const cardTitle = cardElement.querySelector(".card__title");
-
-  cardImage.addEventListener("click", () => {
-    previewImageElement.src = data.link;
-    previewImageElement.alt = data.name;
-    previewImageCaptionElement.textContent = data.name;
-    openModal(previewImageModal);
-  });
-
-  cardTitle.textContent = data.name;
-  cardImage.src = data.link;
-  cardImage.alt = data.name;
 
   return cardElement;
 }
@@ -183,3 +165,5 @@ closeButtons.forEach((button) => {
   const popup = button.closest(".modal");
   button.addEventListener("click", () => closeModal(popup));
 });
+
+export default openModal;

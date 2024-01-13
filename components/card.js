@@ -1,33 +1,10 @@
+import openModal from "../pages/index.js";
+
 const previewImageModal = document.querySelector("#preview-image-modal");
 const previewImageElement = previewImageModal.querySelector(".modal__image");
 const previewImageCaptionElement = previewImageModal.querySelector(
   ".modal__image-title"
 );
-
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-  document.addEventListener("keydown", closeModalEscape);
-  modal.addEventListener("mousedown", closeModalOutside);
-}
-
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", closeModalEscape);
-  modal.removeEventListener("mousedown", closeModalOutside);
-}
-
-function closeModalOutside(e) {
-  if (e.target === e.currentTarget) {
-    closeModal(e.currentTarget);
-  }
-}
-
-function closeModalEscape(e) {
-  if (e.key === "Escape") {
-    const openModal = document.querySelector(".modal_opened");
-    closeModal(openModal);
-  }
-}
 
 class Card {
   constructor(data, cardSelector, cardImageElement, handleImageClick) {
@@ -40,9 +17,7 @@ class Card {
   }
 
   _setEventListeners() {
-    this._element
-      .querySelector(".card__like-button")
-      .addEventListener("click", () => this._handleLikeIcon());
+    this._likeButton.addEventListener("click", () => this._handleLikeIcon());
 
     this._element
       .querySelector(".card__trash-button")
@@ -50,7 +25,9 @@ class Card {
 
     this._element
       .querySelector(".card__image")
-      .addEventListener("click", () => this._handleImageClick());
+      .addEventListener("click", () =>
+        this._handleImageClick({ name: this._name, link: this._link })
+      );
   }
 
   _handleDeleteCard() {
@@ -59,7 +36,6 @@ class Card {
   }
 
   _handleLikeIcon() {
-    console.log(this._handleLikeIcon);
     this._element
       .querySelector(".card__like-button")
       .classList.toggle("card__like-button_active");
@@ -81,6 +57,7 @@ class Card {
 
   getView() {
     this._element = this._getTemplate();
+    this._likeButton = this._element.querySelector(".card__like-button");
     this._setEventListeners();
 
     this._element.querySelector(
