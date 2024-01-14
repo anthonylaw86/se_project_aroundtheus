@@ -1,4 +1,4 @@
-import Card from "../components/card.js";
+import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 
 const initialCards = [
@@ -97,12 +97,6 @@ function closeModal(modal) {
   modal.removeEventListener("mousedown", closeModalOutside);
 }
 
-function getCardElement(data) {
-  const cardElement = cardTemplate.cloneNode(true);
-
-  return cardElement;
-}
-
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", closeModalEscape);
@@ -110,7 +104,7 @@ function openModal(modal) {
 }
 
 function renderCard(cardData, wrapper) {
-  const cardElement = getCardElement(cardData);
+  const cardElement = new Card(cardData);
   const card = new Card(cardData, "#card-template");
   wrapper.prepend(card.getView());
 }

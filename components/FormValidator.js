@@ -19,15 +19,15 @@ class FormValidator {
   _hideInputError(inputEl, errorMessageEl) {
     errorMessageEl = this._form.querySelector(`#${inputEl.id}-error`);
     inputEl.classList.remove(this._inputErrorClass);
-    errorMessageEl.textContent = "";
+    errorMessageEl.textContent = " ";
     errorMessageEl.classList.remove(this._errorClass);
   }
 
   _checkInputValidity(inputEl) {
     if (!inputEl.validity.valid) {
-      showInputError(this._form, inputEl);
+      this._showInputError(this._form, inputEl);
     } else {
-      hideInputError(this._form, inputEl);
+      this._hideInputError(this._form, inputEl);
     }
   }
 
