@@ -22,6 +22,7 @@
   height: 19px;
   border: none;
   padding: 0;
+  background-color: transparent;
 }
 
 .card__trash-button:hover {
