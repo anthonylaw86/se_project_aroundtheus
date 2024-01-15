@@ -104,7 +104,6 @@ function openModal(modal) {
 }
 
 function renderCard(cardData, wrapper) {
-  const cardElement = new Card(cardData);
   const card = new Card(cardData, "#card-template");
   wrapper.prepend(card.getView());
 }
@@ -152,6 +151,14 @@ profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
 
 initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
+
+function toggleButtonState(inputEls) {
+  if (this._hasInvalidInput(inputEls)) {
+    this._disableButton();
+  } else {
+    this._enableButton();
+  }
+}
 
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 
