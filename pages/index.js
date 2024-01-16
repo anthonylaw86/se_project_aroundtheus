@@ -152,15 +152,10 @@ addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
 
 initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
 
-function toggleButtonState(inputEls) {
-  if (this._hasInvalidInput(inputEls)) {
-    this._disableButton();
-  } else {
-    this._enableButton();
-  }
-}
-
-addNewCardButton.addEventListener("click", () => openModal(addCardModal));
+addNewCardButton.addEventListener("click", () => {
+  addFormValidator.toggleButtonState();
+  openModal(addCardModal);
+});
 
 closeButtons.forEach((button) => {
   const popup = button.closest(".modal");
