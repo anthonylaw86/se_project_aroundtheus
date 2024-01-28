@@ -1,6 +1,7 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import "../pages/index.css";
+import Section from "../components/Section.js";
 
 const initialCards = [
   {
@@ -109,6 +110,13 @@ function renderCard(cardData, wrapper) {
   wrapper.prepend(card.getView());
 }
 
+new Section({
+  renderer: () => {
+    const card = new Card(cardData, "#card-template");
+    wrapper.prepend(card.getView());
+  },
+});
+
 function closeModalOutside(e) {
   if (e.target === e.currentTarget) {
     closeModal(e.currentTarget);
@@ -139,6 +147,11 @@ function handleAddCardFormSubmit(e) {
   e.target.reset();
   closeModal(addCardModal);
 }
+
+const newCardPopup = new PopupWithForm("#add-card-modal", () => {});
+newCardPopup.open();
+
+newCardPopup.close();
 
 /*EVENT LISTENERS*/
 
