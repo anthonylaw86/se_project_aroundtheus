@@ -1,7 +1,7 @@
 class Section {
   constructor({ renderer }, containerSelector) {
     this._renderer = renderer;
-    this._container = document.querySelector(".${containerSelector}");
+    this._container = document.querySelector(".modal__container");
   }
 
   renderItems(items) {

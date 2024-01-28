@@ -8,14 +8,19 @@ class PopupWithForm extends Popup {
   }
 
   _getInputValues() {
-    this._popupForm.querySelector(".modal__input_type_title").textContent = name;
-    const form = this._popupElement.querySelector(".modal__form");
-    form.src = link;
-    form.alt = ${name};
-    super.open();
+    const inputEls = document.querySelector(".modal__form");
+    const inputValues = {};
+    inputEls.forEach(inputEl);
+    {
+      inputValues[inputEl.title] = input.value;
+      inputValues[inputEl.url] = input.value;
+    }
+    return inputValues;
   }
 
-  setEventListeners() {}
+  setEventListeners() {
+    this._popupForm.addEventListener("submit", this._handleFormSubmit);
+  }
 
   close() {
     this._popupForm.reset();
@@ -23,4 +28,4 @@ class PopupWithForm extends Popup {
   }
 }
 
-export default PopupWithForm
+export default PopupWithForm;
