@@ -1,17 +1,10 @@
-import openModal from "../pages/index.js";
-
-const previewImageModal = document.querySelector("#preview-image-modal");
-const previewImageElement = previewImageModal.querySelector(".modal__image");
-const previewImageCaptionElement = previewImageModal.querySelector(
-  ".modal__image-title"
-);
-
 class Card {
-  constructor(data, cardSelector, cardImageElement, handleImageClick) {
+  constructor(data, cardSelector, handleImageClick) {
     this._name = data.name;
     this._link = data.link;
 
     this._cardSelector = cardSelector;
+    this._handleImageClick = handleImageClick;
   }
 
   _setEventListeners() {
@@ -37,13 +30,6 @@ class Card {
     this._element
       .querySelector(".card__like-button")
       .classList.toggle("card__like-button_active");
-  }
-
-  _handleImageClick() {
-    previewImageElement.src = this._link;
-    previewImageElement.alt = this._name;
-    previewImageCaptionElement.textContent = this._name;
-    openModal(previewImageModal);
   }
 
   _getTemplate() {

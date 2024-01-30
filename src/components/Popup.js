@@ -30,7 +30,6 @@ export default class Popup {
   }
 
   setEventListeners() {
-    this._handleEscClose.addEventListener(e.key === "Escape");
     this.close();
   }
 }
