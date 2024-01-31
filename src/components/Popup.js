@@ -1,6 +1,6 @@
 export default class Popup {
-  constructor({ popupSelector }) {
-    this._popupElement = document.querySelector("#add-card-modal");
+  constructor(popupSelector) {
+    this._popupElement = document.querySelector(popupSelector);
   }
 
   open() {
@@ -23,13 +23,15 @@ export default class Popup {
     }
   }
 
-  _closePopupOutside(e) {
-    if (e.target === e.currentTarget) {
-      this.close();
-    }
-  }
-
   setEventListeners() {
-    this.close();
+    closeButtons.forEach((button) => {
+      const popup = button.closest(".modal");
+      button.addEventListener("click", () => this.close(popup));
+    });
+    closePopupOutside.addEventListener("click", (e) => {
+      if (e.target === e.currentTarget) {
+        this.close(e.currentTarget);
+      }
+    });
   }
 }

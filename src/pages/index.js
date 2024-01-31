@@ -3,7 +3,6 @@ import FormValidator from "../components/FormValidator.js";
 import "../pages/index.css";
 import Section from "../components/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
-import Popup from "../components/Popup.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 
 const initialCards = [
@@ -120,17 +119,20 @@ new Section({
   },
 });
 
-const previewPopup = new PopupWithImage({
-  popupSelector: "#preview-image-modal",
-});
-previewPopup.setEventListeners();
+//const previewPopup = new PopupWithImage({
+//popupSelector: "#preview-image-modal",
+//});
+//previewPopup.setEventListeners();
 
 function handleImageClick(data) {
   previewPopup.open(data);
 }
 
-const newCardPopup = new PopupWithForm({ popupSelector: "#add-card-modal" });
-newCardPopup.setEventListeners();
+const previewPopup = new PopupWithImage("#preview-image-modal");
+const newCardPopup = new PopupWithForm(
+  "#add-card-modal",
+  (handleFormSubmit) => {}
+);
 
 //function closeModalOutside(e) {
 //if (e.target === e.currentTarget) {
@@ -150,7 +152,7 @@ newCardPopup.setEventListeners();
 function handleProfileFormSubmit(data) {
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closeModal(editProfileModal);
+  newCardPopup.close(editProfileModal);
 }
 
 function handleAddCardFormSubmit(e) {
