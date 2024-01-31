@@ -128,11 +128,13 @@ function handleImageClick(data) {
   previewPopup.open(data);
 }
 
-const previewPopup = new PopupWithImage("#preview-image-modal");
-const newCardPopup = new PopupWithForm(
-  "#add-card-modal",
-  (handleFormSubmit) => {}
-);
+const previewPopup = new PopupWithImage({
+  popupSelector: "#preview-image-modal",
+});
+const newCardPopup = new PopupWithForm({
+  popupSelector: "#add-card-modal",
+  handleFromSubmit: () => {},
+});
 
 //function closeModalOutside(e) {
 //if (e.target === e.currentTarget) {
@@ -179,7 +181,7 @@ initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
 
 addNewCardButton.addEventListener("click", () => {
   addFormValidator.toggleButtonState();
-  openModal(addCardModal);
+  PopupWithForm.open();
 });
 
 closeButtons.forEach((button) => {
