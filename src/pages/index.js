@@ -96,9 +96,9 @@ addFormValidator.enableValidation();
 /*FUNCTIONS*/
 
 function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", closeModalEscape);
-  modal.removeEventListener("mousedown", closeModalOutside);
+  // modal.classList.remove("modal_opened");
+  //  document.removeEventListener("keydown", closeModalEscape);
+  //modal.removeEventListener("mousedown", closeModalOutside);
 }
 
 //function openModal(modal) {
@@ -151,19 +151,21 @@ const newCardPopup = new PopupWithForm({
 
 /*EVENT HANDLERS*/
 
-function handleProfileFormSubmit(data) {
-  profileTitle.textContent = profileTitleInput.value;
-  profileDescription.textContent = profileDescriptionInput.value;
+function handleProfileFormSubmit({ title, description }) {
+  // profileTitle.textContent = profileTitleInput.value;
+  //profileDescription.textContent = profileDescriptionInput.value;
+  userInfo.setUserInfo({ title, description });
+  editFormValidator.resetValidation();
   newCardPopup.close(editProfileModal);
 }
 
-function handleAddCardFormSubmit(e) {
+function handleAddCardFormSubmit({ name, link }) {
   e.preventDefault();
-  const name = cardTitleInput.value;
-  const link = cardURLInput.value;
+  // const name = cardTitleInput.value;
+  // const link = cardURLInput.value;
   renderCard({ name, link }, cardsWrap);
   e.target.reset();
-  closeModal(addCardModal);
+  newCardPopup.close(addCardModal);
 }
 
 /*EVENT LISTENERS*/
@@ -181,7 +183,7 @@ initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
 
 addNewCardButton.addEventListener("click", () => {
   addFormValidator.toggleButtonState();
-  PopupWithForm.open();
+  newCardPopup.open();
 });
 
 closeButtons.forEach((button) => {

@@ -24,6 +24,9 @@ export default class Popup {
   }
 
   setEventListeners() {
+    const closeButtons = document.querySelectorAll(".modal__close");
+    closeButtons.addEventListener("click", () => this.close());
+
     closeButtons.forEach((button) => {
       const popup = button.closest(".modal");
       button.addEventListener("click", () => this.close(popup));
