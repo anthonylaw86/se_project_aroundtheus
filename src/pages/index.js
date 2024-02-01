@@ -136,6 +136,11 @@ const newCardPopup = new PopupWithForm({
   handleFromSubmit: () => {},
 });
 
+const profileEditPopup = new PopupWithForm({
+  popupSelector: "#edit-profile-form",
+  handleFormSubmit: () => {},
+});
+
 //function closeModalOutside(e) {
 //if (e.target === e.currentTarget) {
 // closeModal(e.currentTarget);
@@ -156,7 +161,7 @@ function handleProfileFormSubmit({ title, description }) {
   //profileDescription.textContent = profileDescriptionInput.value;
   userInfo.setUserInfo({ title, description });
   editFormValidator.resetValidation();
-  newCardPopup.close(editProfileModal);
+  profileEditPopup.close(editProfileModal);
 }
 
 function handleAddCardFormSubmit({ name, link }) {
@@ -165,6 +170,7 @@ function handleAddCardFormSubmit({ name, link }) {
   // const link = cardURLInput.value;
   renderCard({ name, link }, cardsWrap);
   e.target.reset();
+  setEventListeners();
   newCardPopup.close(addCardModal);
 }
 
@@ -173,7 +179,7 @@ function handleAddCardFormSubmit({ name, link }) {
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  openModal(editProfileModal);
+  profileEditPopup.open(editProfileModal);
 });
 
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
