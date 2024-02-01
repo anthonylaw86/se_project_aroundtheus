@@ -179,7 +179,7 @@ function handleAddCardFormSubmit({ name, link }) {
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  profileEditPopup.open(editProfileModal);
+  profileEditPopup.open();
 });
 
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
