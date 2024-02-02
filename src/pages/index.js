@@ -170,9 +170,10 @@ function handleProfileFormSubmit({ title, description }) {
 
 function handleAddCardFormSubmit({ name, link }) {
   // e.preventDefault();
-  // const name = cardTitleInput.value;
-  // const link = cardURLInput.value;
+
   renderCard({ name, link }, cardsWrap);
+  name = cardTitleInput.value;
+  link = cardURLInput.value;
   //e.reset();
   newCardPopup.close(addCardModal);
 }
@@ -180,8 +181,8 @@ function handleAddCardFormSubmit({ name, link }) {
 /*EVENT LISTENERS*/
 
 profileEditButton.addEventListener("click", () => {
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
+  // profileTitleInput.value = profileTitle.textContent;
+  //profileDescriptionInput.value = profileDescription.textContent;
   profileEditPopup.open();
 });
 
