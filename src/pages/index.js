@@ -131,15 +131,19 @@ function handleImageClick(data) {
 const previewPopup = new PopupWithImage({
   popupSelector: "#preview-image-modal",
 });
+previewPopup.setEventListeners();
+
 const newCardPopup = new PopupWithForm({
   popupSelector: "#add-card-modal",
   handleFromSubmit: () => {},
 });
+newCardPopup.setEventListeners();
 
 const profileEditPopup = new PopupWithForm({
   popupSelector: "#edit-profile-form",
   handleFormSubmit: () => {},
 });
+profileEditPopup.setEventListeners();
 
 //function closeModalOutside(e) {
 //if (e.target === e.currentTarget) {
@@ -165,12 +169,11 @@ function handleProfileFormSubmit({ title, description }) {
 }
 
 function handleAddCardFormSubmit({ name, link }) {
-  e.preventDefault();
+  // e.preventDefault();
   // const name = cardTitleInput.value;
   // const link = cardURLInput.value;
   renderCard({ name, link }, cardsWrap);
-  e.target.reset();
-  setEventListeners();
+  //e.reset();
   newCardPopup.close(addCardModal);
 }
 
