@@ -174,8 +174,8 @@ function handleAddCardFormSubmit({ name, link }) {
   renderCard({ name, link }, cardsWrap);
   name = cardTitleInput.value;
   link = cardURLInput.value;
-  //e.reset();
   newCardPopup.close(addCardModal);
+  e.reset();
 }
 
 /*EVENT LISTENERS*/
