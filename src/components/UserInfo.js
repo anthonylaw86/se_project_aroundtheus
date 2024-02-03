@@ -1,6 +1,4 @@
-import Popup from "./Popup.js";
-
-class UserInfo extends Popup {
+class UserInfo {
   constructor({ profileTitleSelector, profileDescriptionSelector }) {
     this._title = document.querySelector(profileTitleSelector);
     this._description = document.querySelector(profileDescriptionSelector);
