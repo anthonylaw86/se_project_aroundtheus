@@ -151,7 +151,10 @@ const profileEditPopup = new PopupWithForm({
 });
 profileEditPopup.setEventListeners();
 
-const userInfo = new UserInfo(title, description);
+const userInfo = new UserInfo({
+  profileTitleSelecor: "#profile-title-input",
+  profileDescriptionSelector: "#profile-description-input",
+});
 
 //function closeModalOutside(e) {
 //if (e.target === e.currentTarget) {
