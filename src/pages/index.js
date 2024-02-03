@@ -151,8 +151,7 @@ const profileEditPopup = new PopupWithForm({
 });
 profileEditPopup.setEventListeners();
 
-//const userInfo = new UserInfo({
-//});
+const userInfo = new UserInfo(title, description);
 
 //function closeModalOutside(e) {
 //if (e.target === e.currentTarget) {
@@ -172,8 +171,8 @@ profileEditPopup.setEventListeners();
 function handleProfileFormSubmit({ title, description }) {
   // profileTitle.textContent = profileTitleInput.value;
   //profileDescription.textContent = profileDescriptionInput.value;
-  // UserInfo.setUserInfo({ title, description });
-  editFormValidator.resetValidation();
+  userInfo.setUserInfo({ title, description });
+  //editFormValidator.resetValidation();
   profileEditPopup.close(editProfileModal);
 }
 
