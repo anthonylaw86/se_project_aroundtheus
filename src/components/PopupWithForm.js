@@ -12,7 +12,7 @@ class PopupWithForm extends Popup {
     const inputValues = {};
     this._inputList.forEach((input) => {
       inputValues[input.name] = input.value;
-      inputValues[input.url] = input.value;
+      //inputValues[input.url] = input.value;
     });
     return inputValues;
   }
@@ -27,8 +27,11 @@ class PopupWithForm extends Popup {
   }
 
   close() {
-    //this._popupForm.reset();
     super.close();
+  }
+
+  reset() {
+    this._popupForm.reset();
   }
 }
 

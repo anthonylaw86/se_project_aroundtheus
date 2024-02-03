@@ -1,19 +1,21 @@
 import Popup from "./Popup.js";
 
 class UserInfo extends Popup {
-  constructor({ profileNameSelector, profileDescriptionSelector }) {
-    this._profileNameElement = profileNameSelector;
+  constructor({ profileTitleSelector, profileDescriptionSelector }) {
+    this._profileTitleElement = profileTitleSelector;
     this._profileDescriptionElement = profileDescriptionSelector;
   }
   getUserInfo() {
     return {
-      userProfileName: this._profileNameElement.textContent,
+      userProfileTitle: this._profileTitleElement.textContent,
       userProfilDescription: this._profileDescriptionElement.textContent,
     };
   }
 
   setUserInfo({ title, description }) {
-    (this._profileNameElement.textContent = userProfileName),
+    (this._profileTitleElement.textContent = userProfileName),
       (this._profileDescriptionElement.textContent = userProfilDescription);
   }
 }
+
+export default UserInfo;
