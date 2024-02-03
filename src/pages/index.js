@@ -182,7 +182,7 @@ function handleProfileFormSubmit({ title, description }) {
 function handleAddCardFormSubmit({ title, url }) {
   // e.preventDefault();
 
-  const newCard = renderCard({ title, url });
+  const newCard = renderCard({ title: "", url: "" });
   cardsWrap.addItem(newCard);
   //name = cardTitleInput.value;
   //link = cardURLInput.url;
