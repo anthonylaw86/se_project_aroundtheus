@@ -7,33 +7,6 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import Constants from "../utils/constants.js";
 
-// const initialCards = [
-//   {
-//     name: "Yosemite Valley",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-//   },
-//   {
-//     name: "Lake Louise",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-//   },
-//   {
-//     name: "Bald Mountains",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-//   },
-//   {
-//     name: "Latemar",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-//   },
-//   {
-//     name: "Vanoise National Park",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-//   },
-//   {
-//     name: "Lago di Braies",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-//   },
-// ];
-
 /*ELEMENTS*/
 
 const editProfileModal = document.querySelector("#profile-edit-modal");
@@ -49,14 +22,6 @@ const profileEditButton = document.querySelector("#profile-edit-button");
 
 /*FORM DATA*/
 
-// const settings = {
-//   formSelector: ".modal__form",
-//   inputSelector: ".modal__input",
-//   submitButtonSelector: ".modal__button",
-//   inactiveButtonClass: "modal__button_disabled",
-//   inputErrorClass: "modal__input_type_error",
-//   errorClass: "modal__error_visable",
-// };
 const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
@@ -67,16 +32,7 @@ const cardTitleInput = addCardFormElement.querySelector(
 const cardURLInput = addCardFormElement.querySelector(".modal__input_type_url");
 const constants = new Constants();
 
-// const validationSettings = {
-//   inputSelector: ".modal__input",
-//   submitButtonSelector: ".modal__button",
-//   inactiveButtonClass: "modal__button_disabled",
-//   inputErrorClass: "modal__input_type_error",
-//   errorClass: "modal__error_visible",
-// };
-
 const editFormElement = editProfileModal.querySelector(".modal__form");
-// const addFormElement = addCardModal.querySelector(".modal__form");
 
 const editFormValidator = new FormValidator(
   constants.settings,
@@ -156,12 +112,10 @@ function handleAddCardFormSubmit({ name, link }) {
 /*EVENT LISTENERS*/
 
 profileEditButton.addEventListener("click", () => {
-  userInfo.getUserInfo({
-    title: profileTitle.textContent,
-    description: profileDescription.textContent,
-  });
-  // profileTitleInput.value = profileTitle.textContent;
-  // profileDescriptionInput.value = profileDescription.textContent;
+  userInfo.getUserInfo(
+    (profileTitleInput.value = profileTitle.textContent),
+    (profileDescriptionInput.value = profileDescription.textContent)
+  );
   profileEditPopup.open();
 });
 
