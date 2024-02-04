@@ -27,10 +27,6 @@ class PopupWithForm extends Popup {
     });
   }
 
-  close() {
-    super.close();
-  }
-
   reset() {
     this._popupForm.reset();
   }

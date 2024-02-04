@@ -76,13 +76,16 @@ const constants = new Constants();
 // };
 
 const editFormElement = editProfileModal.querySelector(".modal__form");
-const addFormElement = addCardModal.querySelector(".modal__form");
+// const addFormElement = addCardModal.querySelector(".modal__form");
 
 const editFormValidator = new FormValidator(
   constants.settings,
   editFormElement
 );
-const addFormValidator = new FormValidator(constants.settings, addFormElement);
+const addFormValidator = new FormValidator(
+  constants.settings,
+  addCardFormElement
+);
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
@@ -140,21 +143,25 @@ const userInfo = new UserInfo({
 
 function handleProfileFormSubmit({ title, description }) {
   userInfo.setUserInfo({ title, description });
-  profileEditPopup.close(editProfileModal);
+  profileEditPopup.close();
 }
 
 function handleAddCardFormSubmit({ name, link }) {
   const newCard = renderCard({ name, link });
   cardsWrap.addItem(newCard);
-  newCardPopup.close(addCardModal);
+  newCardPopup.close();
   newCardPopup.reset();
 }
 
 /*EVENT LISTENERS*/
 
 profileEditButton.addEventListener("click", () => {
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
+  userInfo.getUserInfo({
+    title: profileTitle.textContent,
+    description: profileDescription.textContent,
+  });
+  // profileTitleInput.value = profileTitle.textContent;
+  // profileDescriptionInput.value = profileDescription.textContent;
   profileEditPopup.open();
 });
 
