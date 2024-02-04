@@ -1,3 +1,7 @@
+import Constants from "../utils/constants.js";
+
+const constants = new Constants();
+
 class FormValidator {
   constructor(settings, formElement) {
     this._inputSelector = settings.inputSelector;
