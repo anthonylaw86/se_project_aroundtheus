@@ -50,7 +50,7 @@ addFormValidator.enableValidation();
 
 function renderCard(cardData) {
   const card = new Card(cardData, "#card-template", handleImageClick);
-  return cardsWrap.addItem(card.getView());
+  return card.getView();
 }
 
 const cardsWrap = new Section(
@@ -58,6 +58,7 @@ const cardsWrap = new Section(
     items: constants.initialCards,
     renderer: (cardData) => {
       const card = renderCard(cardData);
+      cardsWrap.addItem(card);
     },
   },
   ".cards__list"
@@ -111,10 +112,9 @@ function handleAddCardFormSubmit({ name, link }) {
 /*EVENT LISTENERS*/
 
 profileEditButton.addEventListener("click", () => {
-  userInfo.getUserInfo(
-    (profileTitleInput.value = profileTitle.textContent),
-    (profileDescriptionInput.value = profileDescription.textContent)
-  );
+  userInfo.getUserInfo();
+  // (profileTitleInput.value = profileTitle.textContent),
+  // (profileDescriptionInput.value = profileDescription.textContent)
   profileEditPopup.open();
 });
 
