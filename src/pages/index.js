@@ -57,7 +57,7 @@ function renderCard(cardData) {
 const cardsWrap = new Section(
   {
     items: constants.initialCards,
-    renderer: (cardData) => {
+    renderCard(cardData) {
       const card = new Card(cardData, "#card-template", handleImageClick);
       cardsWrap.addItem(card.getView());
     },
