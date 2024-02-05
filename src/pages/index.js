@@ -57,8 +57,9 @@ function renderCard(cardData) {
 const cardsWrap = new Section(
   {
     items: constants.initialCards,
-    renderCard(cardData) {
-      const card = new Card(cardData, "#card-template", handleImageClick);
+    renderer: (cardData) => {
+      const card = renderCard(cardData);
+      // const card = new Card(cardData, "#card-template", handleImageClick);
       cardsWrap.addItem(card.getView());
     },
   },
@@ -92,8 +93,9 @@ profileEditPopup.setEventListeners();
 
 const userInfo = new UserInfo({
   profileTitleSelector: ".profile__title",
-  profileDescriptionSelector: ".profile__description",
+  profileDescriptionSelector: "profile__description",
 });
+const userData = userInfo.getUserInfo();
 
 /*EVENT HANDLERS*/
 
