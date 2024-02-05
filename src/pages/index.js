@@ -50,8 +50,7 @@ addFormValidator.enableValidation();
 
 function renderCard(cardData) {
   const card = new Card(cardData, "#card-template", handleImageClick);
-
-  return card.getView();
+  return cardsWrap.addItem(card.getView());
 }
 
 const cardsWrap = new Section(
@@ -59,8 +58,6 @@ const cardsWrap = new Section(
     items: constants.initialCards,
     renderer: (cardData) => {
       const card = renderCard(cardData);
-      // const card = new Card(cardData, "#card-template", handleImageClick);
-      cardsWrap.addItem(card.getView());
     },
   },
   ".cards__list"
@@ -93,7 +90,7 @@ profileEditPopup.setEventListeners();
 
 const userInfo = new UserInfo({
   profileTitleSelector: ".profile__title",
-  profileDescriptionSelector: "profile__description",
+  profileDescriptionSelector: ".profile__description",
 });
 const userData = userInfo.getUserInfo();
 
