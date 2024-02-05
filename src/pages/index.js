@@ -93,7 +93,6 @@ const userInfo = new UserInfo({
   profileTitleSelector: ".profile__title",
   profileDescriptionSelector: ".profile__description",
 });
-const userData = userInfo.getUserInfo();
 
 /*EVENT HANDLERS*/
 
@@ -112,7 +111,8 @@ function handleAddCardFormSubmit({ name, link }) {
 /*EVENT LISTENERS*/
 
 profileEditButton.addEventListener("click", () => {
-  userInfo.getUserInfo();
+  const userData = userInfo.getUserInfo();
+  console.log(userData);
   // (profileTitleInput.value = profileTitle.textContent),
   // (profileDescriptionInput.value = profileDescription.textContent)
   profileEditPopup.open();
