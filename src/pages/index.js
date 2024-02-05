@@ -112,9 +112,8 @@ function handleAddCardFormSubmit({ name, link }) {
 
 profileEditButton.addEventListener("click", () => {
   const userData = userInfo.getUserInfo();
-  console.log(userData);
-  // (profileTitleInput.value = profileTitle.textContent),
-  // (profileDescriptionInput.value = profileDescription.textContent)
+  profileTitleInput.value = userData.title;
+  profileDescriptionInput.value = userData.description;
   profileEditPopup.open();
 });
 
