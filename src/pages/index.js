@@ -100,38 +100,31 @@ const newCardPopup = new PopupWithForm({
 });
 newCardPopup.setEventListeners();
 
+const userInfo = new UserInfo({
+  profileTitleSelector: ".profile__title",
+  profileDescriptionSelector: ".profile__description",
+});
 api
-  .getUserInfo()
-  .then(() => {
-    const userInfo = new UserInfo({
-      profileTitleSelector: ".profile__title",
-      profileDescriptionSelector: ".profile__description",
-    });
-    profileEditButton.addEventListener("click", () => {
-      const userData = userInfo.getUserInfo();
-      profileTitleInput.value = userData.title;
-      profileDescriptionInput.value = userData.description;
-      profileEditPopup.open();
-    });
-    function handleProfileFormSubmit({ title, description }) {
-      userInfo.setUserInfo({ title, description });
-      profileEditPopup.close();
-    }
-
-    
-      const profileEditPopup = new PopupWithForm(
-        api.editUserInfo().then(() => {
-        popupSelector: "#profile-edit-modal",
-        handleFormSubmit: (data) => {
-          handleProfileFormSubmit(data);
-        },
-      
-      profileEditPopup.setEventListeners();
-      }))
-  })
+  .getUserInfo(userInfo._title, userInfo._description)
+  .then((res) => {})
   .catch((err) => {
     console.error(err);
   });
+
+const profileEditPopup = new PopupWithForm({
+  popupSelector: "#profile-edit-modal",
+  handleFormSubmit: (data) => {
+    api
+      .editUserInfo()
+      .then(() => {
+        handleProfileFormSubmit(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+    profileEditPopup.setEventListeners();
+  },
+});
 
 /*EVENT HANDLERS*/
 
@@ -142,9 +135,21 @@ function handleAddCardFormSubmit({ name, link }) {
   newCardPopup.reset();
 }
 
+function handleProfileFormSubmit({ title, description }) {
+  userInfo.setUserInfo({ title, description });
+  profileEditPopup.close();
+}
+
 /*EVENT LISTENERS*/
 
 addNewCardButton.addEventListener("click", () => {
   addFormValidator.toggleButtonState();
   newCardPopup.open();
+});
+
+profileEditButton.addEventListener("click", () => {
+  const userData = userInfo.getUserInfo();
+  profileTitleInput.value = userData.title;
+  profileDescriptionInput.value = userData.description;
+  profileEditPopup.open();
 });
