@@ -33,7 +33,18 @@ export default class Api {
       body: JSON.stringify({
         name: "Marie Skłodowska Curie",
         about: "Physicist and Chemist",
-      }),
+      }).then(this.checkServerResponse),
+    });
+  }
+
+  createNewCard(name, link) {
+    return fetch(`${this._baseUrl}/cards`, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify({
+        name,
+        link,
+      }).then(this.checkServerResponse),
     });
   }
 }

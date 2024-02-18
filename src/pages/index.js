@@ -129,10 +129,17 @@ const profileEditPopup = new PopupWithForm({
 /*EVENT HANDLERS*/
 
 function handleAddCardFormSubmit({ name, link }) {
-  const newCard = renderCard({ name, link });
-  cardsWrap.addItem(newCard);
-  newCardPopup.close();
-  newCardPopup.reset();
+  api
+    .createNewCard(name, link)
+    .then((res) => {
+      const newCard = renderCard({ name, link });
+      cardsWrap.addItem(newCard);
+      newCardPopup.close();
+      newCardPopup.reset();
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 }
 
 function handleProfileFormSubmit({ title, description }) {
