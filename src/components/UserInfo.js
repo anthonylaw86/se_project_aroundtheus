@@ -14,6 +14,8 @@ class UserInfo {
     this._title.textContent = title;
     this._description.textContent = description;
   }
+
+  setAvatar(link) {}
 }
 
 export default UserInfo;

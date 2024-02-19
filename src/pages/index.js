@@ -63,20 +63,20 @@ function renderCard(cardData) {
   const card = new Card(cardData, "#card-template", handleImageClick);
   return card.getView();
 }
-
+const cardsWrap = new Section(
+  {
+    items: [],
+    renderer: (cardData) => {
+      const card = renderCard(cardData);
+      cardsWrap.addItem(card);
+    },
+  },
+  ".cards__list"
+);
 api
   .getInitialCards()
-  .then(() => {
-    const cardsWrap = new Section(
-      {
-        items: constants.initialCards,
-        renderer: (cardData) => {
-          const card = renderCard(cardData);
-          cardsWrap.addItem(card);
-        },
-      },
-      ".cards__list"
-    );
+  .then((cards) => {
+    cardsWrap.setItems(cards);
     cardsWrap.renderItems();
   })
   .catch((err) => {
@@ -106,7 +106,9 @@ const userInfo = new UserInfo({
 });
 api
   .getUserInfo(userInfo._title, userInfo._description)
-  .then((res) => {})
+  .then((res) => {
+    userInfo.setUserInfo({ title: res.name, description: res.about });
+  })
   .catch((err) => {
     console.error(err);
   });
@@ -122,16 +124,36 @@ const profileEditPopup = new PopupWithForm({
       .catch((err) => {
         console.error(err);
       });
-    profileEditPopup.setEventListeners();
   },
 });
 
 /*EVENT HANDLERS*/
 
+api
+  .deleteCard()
+  .then(() => {
+    Card.removeCard();
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+
+profileEditPopup.setEventListeners();
+
 function handleAddCardFormSubmit({ name, link }) {
   api
     .createNewCard(name, link)
     .then((res) => {
+      const cardsWrap = new Section(
+        {
+          items: constants.initialCards,
+          renderer: (cardData) => {
+            const card = renderCard(cardData);
+            cardsWrap.addItem(card);
+          },
+        },
+        ".cards__list"
+      );
       const newCard = renderCard({ name, link });
       cardsWrap.addItem(newCard);
       newCardPopup.close();

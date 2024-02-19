@@ -33,8 +33,8 @@ export default class Api {
       body: JSON.stringify({
         name: "Marie Skłodowska Curie",
         about: "Physicist and Chemist",
-      }).then(this.checkServerResponse),
-    });
+      }),
+    }).then(this.checkServerResponse);
   }
 
   createNewCard(name, link) {
@@ -44,8 +44,18 @@ export default class Api {
       body: JSON.stringify({
         name,
         link,
-      }).then(this.checkServerResponse),
-    });
+      }),
+    }).then(this.checkServerResponse);
+  }
+
+  deleteCard() {
+    return fetch(`${this._baseUrl}/cards/cardId`, {
+      method: "DELETE",
+      headers: this._headers,
+      body: JSON.stringify({
+        cardId,
+      }),
+    }).then(this.checkServerResponse);
   }
 }
 

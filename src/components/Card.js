@@ -12,7 +12,7 @@ class Card {
 
     this._element
       .querySelector(".card__trash-button")
-      .addEventListener("click", () => this._handleDeleteCard());
+      .addEventListener("click", () => this.removeCard());
 
     this._element
       .querySelector(".card__image")
@@ -21,7 +21,7 @@ class Card {
       );
   }
 
-  _handleDeleteCard() {
+  removeCard() {
     this._element.remove();
     this._element = null;
   }
