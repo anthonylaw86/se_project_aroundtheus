@@ -59,8 +59,24 @@ addFormValidator.enableValidation();
 
 /*FUNCTIONS*/
 
+function handleDeleteClick(id) {
+  api
+    .deleteCard()
+    .then(() => {
+      Card.removeCard();
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+}
+
 function renderCard(cardData) {
-  const card = new Card(cardData, "#card-template", handleImageClick);
+  const card = new Card(
+    cardData,
+    "#card-template",
+    handleImageClick,
+    handleDeleteClick
+  );
   return card.getView();
 }
 const cardsWrap = new Section(

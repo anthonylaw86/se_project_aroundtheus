@@ -1,10 +1,12 @@
 class Card {
-  constructor(data, cardSelector, handleImageClick) {
+  constructor(data, cardSelector, handleImageClick, handleDeleteClick) {
     this._name = data.name;
     this._link = data.link;
+    this._id = data._id;
 
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
+    this._handleDeleteClick = handleDeleteClick;
   }
 
   _setEventListeners() {
@@ -12,7 +14,7 @@ class Card {
 
     this._element
       .querySelector(".card__trash-button")
-      .addEventListener("click", () => this.removeCard());
+      .addEventListener("click", () => this._handleDeleteClick());
 
     this._element
       .querySelector(".card__image")
