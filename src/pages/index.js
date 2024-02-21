@@ -59,15 +59,19 @@ addFormValidator.enableValidation();
 
 /*FUNCTIONS*/
 
-function handleDeleteClick(id) {
-  api
-    .deleteCard()
-    .then(() => {
-      Card.removeCard();
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+function handleDeleteClick(card) {
+  deleteCardPopup.open();
+  deleteCardPopup.setSubmitAction(() => {
+    api
+      .deleteCard(card.id)
+      .then(() => {
+        card.removeCard();
+        deleteCardPopup.close();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  });
 }
 
 function renderCard(cardData) {
@@ -116,6 +120,11 @@ const newCardPopup = new PopupWithForm({
 });
 newCardPopup.setEventListeners();
 
+const deleteCardPopup = new PopupWithForm({
+  popupSelector: "#delete-card-modal",
+});
+deleteCardPopup.setEventListeners();
+
 const userInfo = new UserInfo({
   profileTitleSelector: ".profile__title",
   profileDescriptionSelector: ".profile__description",
@@ -144,15 +153,6 @@ const profileEditPopup = new PopupWithForm({
 });
 
 /*EVENT HANDLERS*/
-
-api
-  .deleteCard()
-  .then(() => {
-    Card.removeCard();
-  })
-  .catch((err) => {
-    console.error(err);
-  });
 
 profileEditPopup.setEventListeners();
 

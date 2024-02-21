@@ -48,11 +48,10 @@ export default class Api {
     }).then(this.checkServerResponse);
   }
 
-  deleteCard() {
-    return fetch(`${this._baseUrl}/cards/cardId`, {
+  deleteCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",
       headers: this._headers,
-      body: JSON.stringify({}),
     }).then(this.checkServerResponse);
   }
 }

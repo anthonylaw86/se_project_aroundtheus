@@ -2,7 +2,7 @@ class Card {
   constructor(data, cardSelector, handleImageClick, handleDeleteClick) {
     this._name = data.name;
     this._link = data.link;
-    this._id = data._id;
+    this.id = data._id;
 
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
@@ -14,7 +14,7 @@ class Card {
 
     this._element
       .querySelector(".card__trash-button")
-      .addEventListener("click", () => this._handleDeleteClick());
+      .addEventListener("click", () => this._handleDeleteClick(this));
 
     this._element
       .querySelector(".card__image")
