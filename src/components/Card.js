@@ -14,7 +14,6 @@ class Card {
     this._element
       .querySelector(".card__trash-button")
       .addEventListener("click", () => {
-        debugger;
         this._handleDeleteClick(this);
       });
 

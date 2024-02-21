@@ -158,7 +158,6 @@ const profileEditPopup = new PopupWithForm({
 profileEditPopup.setEventListeners();
 
 function handleAddCardFormSubmit({ name, link }) {
-  debugger;
   api
     .createNewCard(name, link)
     .then((res) => {
