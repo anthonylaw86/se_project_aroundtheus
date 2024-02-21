@@ -3,7 +3,6 @@ class Card {
     this._name = data.name;
     this._link = data.link;
     this.id = data._id;
-
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
     this._handleDeleteClick = handleDeleteClick;
@@ -14,7 +13,10 @@ class Card {
 
     this._element
       .querySelector(".card__trash-button")
-      .addEventListener("click", () => this._handleDeleteClick(this));
+      .addEventListener("click", () => {
+        debugger;
+        this._handleDeleteClick(this);
+      });
 
     this._element
       .querySelector(".card__image")

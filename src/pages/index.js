@@ -93,6 +93,7 @@ const cardsWrap = new Section(
   },
   ".cards__list"
 );
+
 api
   .getInitialCards()
   .then((cards) => {
@@ -157,20 +158,11 @@ const profileEditPopup = new PopupWithForm({
 profileEditPopup.setEventListeners();
 
 function handleAddCardFormSubmit({ name, link }) {
+  debugger;
   api
     .createNewCard(name, link)
     .then((res) => {
-      const cardsWrap = new Section(
-        {
-          items: constants.initialCards,
-          renderer: (cardData) => {
-            const card = renderCard(cardData);
-            cardsWrap.addItem(card);
-          },
-        },
-        ".cards__list"
-      );
-      const newCard = renderCard({ name, link });
+      const newCard = renderCard(res);
       cardsWrap.addItem(newCard);
       newCardPopup.close();
       newCardPopup.reset();
@@ -179,6 +171,8 @@ function handleAddCardFormSubmit({ name, link }) {
       console.error(err);
     });
 }
+
+name: "Peacock";
 
 function handleProfileFormSubmit({ title, description }) {
   userInfo.setUserInfo({ title, description });
