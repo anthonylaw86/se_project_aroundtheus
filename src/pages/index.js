@@ -59,13 +59,13 @@ addFormValidator.enableValidation();
 
 /*FUNCTIONS*/
 
-function handleLikeIcon(card, isLiked) {
-  if (isLiked === false) {
-    isLiked = true;
+function handleLikeIcon(card) {
+  console.log(card);
+  if (!card.isLiked) {
     api
       .isLiked(card.id)
-      .then(() => {
-        card.handleLikeIcon();
+      .then((res) => {
+        card.updateIsLiked(res.isLiked);
       })
       .catch((err) => {
         console.error(err);
@@ -73,8 +73,8 @@ function handleLikeIcon(card, isLiked) {
   } else {
     api
       .unliked(card.id)
-      .then(() => {
-        card.handleLikeIcon();
+      .then((res) => {
+        card.updateIsLiked(res.isLiked);
       })
       .catch((err) => {
         console.error(err);

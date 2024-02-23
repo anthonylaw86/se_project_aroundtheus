@@ -17,9 +17,9 @@ class Card {
   }
 
   _setEventListeners() {
-    this._likeButton.addEventListener("click", () =>
-      this._handleLikeClick(this)
-    );
+    this._likeButton.addEventListener("click", () => {
+      this._handleLikeClick(this);
+    });
 
     this._element
       .querySelector(".card__trash-button")
@@ -39,8 +39,17 @@ class Card {
     this._element = null;
   }
 
-  handleLikeIcon() {
-    this._likeButton.classList.toggle("card__like-button_active");
+  updateIsLiked(isLiked) {
+    this.isLiked = isLiked;
+    this.renderLikes();
+  }
+
+  renderLikes() {
+    if (this.isLiked) {
+      this._likeButton.classList.add("card__like-button_active");
+    } else {
+      this._likeButton.classList.remove("card__like-button_active");
+    }
   }
 
   _getTemplate() {
@@ -58,7 +67,7 @@ class Card {
     this._element.querySelector(".card__image").src = this._link;
     this._element.querySelector(".card__image").alt = this._name;
     this._element.querySelector(".card__title").textContent = this._name;
-
+    this.renderLikes();
     return this._element;
   }
 }
