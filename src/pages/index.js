@@ -59,7 +59,7 @@ addFormValidator.enableValidation();
 
 /*FUNCTIONS*/
 
-function handleLikeIcon(card, isLiked, cardId) {
+function handleLikeIcon(card, isLiked) {
   debugger;
   if (isLiked === false) {
     isLiked = true;
@@ -72,9 +72,14 @@ function handleLikeIcon(card, isLiked, cardId) {
         console.error(err);
       });
   } else {
-    api.unliked(card.isLiked).then(() => {
-      card.handleLikeIcon();
-    });
+    api
+      .unliked(card.isLiked)
+      .then(() => {
+        card.handleLikeIcon();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 }
 
@@ -98,7 +103,8 @@ function renderCard(cardData) {
     cardData,
     "#card-template",
     handleImageClick,
-    handleDeleteClick
+    handleDeleteClick,
+    handleLikeIcon
   );
   return card.getView();
 }
