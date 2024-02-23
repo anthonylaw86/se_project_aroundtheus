@@ -54,6 +54,20 @@ export default class Api {
       headers: this._headers,
     }).then(this.checkServerResponse);
   }
+
+  isLiked(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      method: "PUT",
+      headers: this._headers,
+    }).then(this.checkServerResponse);
+  }
+
+  unliked(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then(this.checkServerResponse);
+  }
 }
 
 // other methods for working with the API

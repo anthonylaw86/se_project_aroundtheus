@@ -3,13 +3,14 @@ class Card {
     this._name = data.name;
     this._link = data.link;
     this.id = data._id;
+    this.isLiked = data.isLiked;
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
     this._handleDeleteClick = handleDeleteClick;
   }
 
   _setEventListeners() {
-    this._likeButton.addEventListener("click", () => this._handleLikeIcon());
+    this._likeButton.addEventListener("click", () => this.handleLikeIcon());
 
     this._element
       .querySelector(".card__trash-button")
@@ -29,7 +30,7 @@ class Card {
     this._element = null;
   }
 
-  _handleLikeIcon() {
+  handleLikeIcon() {
     this._likeButton.classList.toggle("card__like-button_active");
   }
 

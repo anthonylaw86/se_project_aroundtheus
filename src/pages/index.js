@@ -59,6 +59,25 @@ addFormValidator.enableValidation();
 
 /*FUNCTIONS*/
 
+function handleLikeIcon(card, isLiked, cardId) {
+  debugger;
+  if (isLiked === false) {
+    isLiked = true;
+    api
+      .isLiked(card.isLiked)
+      .then(() => {
+        card.handleLikeIcon();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  } else {
+    api.unliked(card.isLiked).then(() => {
+      card.handleLikeIcon();
+    });
+  }
+}
+
 function handleDeleteClick(card) {
   deleteCardPopup.open();
   deleteCardPopup.setSubmitAction(() => {
@@ -170,8 +189,6 @@ function handleAddCardFormSubmit({ name, link }) {
       console.error(err);
     });
 }
-
-name: "Peacock";
 
 function handleProfileFormSubmit({ title, description }) {
   userInfo.setUserInfo({ title, description });
