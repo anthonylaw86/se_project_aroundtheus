@@ -166,7 +166,7 @@ const profileEditPopup = new PopupWithForm({
   popupSelector: "#profile-edit-modal",
   handleFormSubmit: (data) => {
     api
-      .editUserInfo(userInfo._title, userInfo._description)
+      .editUserInfo({ title: data.name, description: data.about })
       .then((res) => {
         userInfo.setUserInfo({ title: res.name, description: res.about });
         api.getUserInfo(userInfo._title, userInfo._description);

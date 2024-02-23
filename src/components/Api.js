@@ -68,6 +68,14 @@ export default class Api {
       headers: this._headers,
     }).then(this.checkServerResponse);
   }
+
+  updateAvatar(avatar) {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
+      method: "PATCH",
+      headers: this._headers,
+      avatar: link,
+    }).then(this.checkServerResponse);
+  }
 }
 
 // other methods for working with the API
