@@ -170,8 +170,9 @@ const profileEditPopup = new PopupWithForm({
       .editUserInfo({ name: data.title, about: data.description })
       .then((res) => {
         userInfo.setUserInfo({ title: res.name, description: res.about });
-        api.getUserInfo(userInfo._title, userInfo._description);
+
         handleProfileFormSubmit({ title: data.name, description: data.about });
+        api.getUserInfo(userInfo._title, userInfo._description);
       })
       .catch((err) => {
         console.error(err);

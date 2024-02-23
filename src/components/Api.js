@@ -26,13 +26,13 @@ export default class Api {
     }).then(this.checkServerResponse);
   }
 
-  editUserInfo(res) {
+  editUserInfo(data) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        name: "Anthony Law",
-        about: "Dogs, Dogs, Dogs",
+        name: data.name,
+        about: data.about,
       }),
     }).then(this.checkServerResponse);
   }
@@ -73,7 +73,7 @@ export default class Api {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
-      avatar: link,
+      avatar: avatar,
     }).then(this.checkServerResponse);
   }
 }
