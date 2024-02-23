@@ -1,7 +1,12 @@
 class UserInfo {
-  constructor({ profileTitleSelector, profileDescriptionSelector }) {
+  constructor({
+    profileTitleSelector,
+    profileDescriptionSelector,
+    avatarSelector,
+  }) {
     this._title = document.querySelector(profileTitleSelector);
     this._description = document.querySelector(profileDescriptionSelector);
+    this._avatar = document.querySelector(avatarSelector);
   }
   getUserInfo() {
     return {
@@ -15,7 +20,9 @@ class UserInfo {
     this._description.textContent = description;
   }
 
-  setAvatar(link) {}
+  setAvatar(avatar) {
+    this._avatar.link = avatar;
+  }
 }
 
 export default UserInfo;

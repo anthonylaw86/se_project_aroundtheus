@@ -25,6 +25,7 @@ const addCardModal = document.querySelector("#add-card-modal");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const addCardFormElement = addCardModal.querySelector(".modal__form");
+const avatarElement = document.querySelector(".profile__image");
 
 /*BUTTONS*/
 
@@ -79,6 +80,21 @@ function handleLikeIcon(card) {
         console.error(err);
       });
   }
+}
+
+function updateAvatar(avatar) {
+  avatarEditPopup.open();
+  avatarEditPopup.setSubmitAction(() => {
+    api
+      .updateAvatar(avatar)
+      .then(() => {
+        userInfo.setAvatar(avatar);
+        avatarFormSubmit.close();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  });
 }
 
 function handleDeleteClick(card) {
@@ -144,6 +160,11 @@ const newCardPopup = new PopupWithForm({
 });
 newCardPopup.setEventListeners();
 
+const avatarEditPopup = new PopupWithForm({
+  popupSelector: "#update-avatar-modal",
+});
+avatarEditPopup.setEventListeners();
+
 const deleteCardPopup = new PopupWithForm({
   popupSelector: "#delete-card-modal",
 });
@@ -199,11 +220,18 @@ function handleAddCardFormSubmit({ name, link }) {
 }
 
 function handleProfileFormSubmit({ title, description }) {
-  userInfo.setUserInfo({ title, description });
   profileEditPopup.close();
 }
 
+function avatarFormSubmit(avatar) {
+  avatarEditPopup.close();
+}
+
 /*EVENT LISTENERS*/
+
+avatarElement.addEventListener("click", () => {
+  avatarEditPopup.open();
+});
 
 addNewCardButton.addEventListener("click", () => {
   addFormValidator.toggleButtonState();
