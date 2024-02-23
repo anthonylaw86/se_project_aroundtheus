@@ -26,13 +26,13 @@ export default class Api {
     }).then(this.checkServerResponse);
   }
 
-  editUserInfo() {
+  editUserInfo(res) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        name: "Marie Skłodowska Curie",
-        about: "Physicist and Chemist",
+        name: "Anthony Law",
+        about: "Dogs, Dogs, Dogs",
       }),
     }).then(this.checkServerResponse);
   }

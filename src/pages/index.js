@@ -60,7 +60,6 @@ addFormValidator.enableValidation();
 /*FUNCTIONS*/
 
 function handleLikeIcon(card) {
-  console.log(card);
   if (!card.isLiked) {
     api
       .isLiked(card.id)
@@ -167,9 +166,11 @@ const profileEditPopup = new PopupWithForm({
   popupSelector: "#profile-edit-modal",
   handleFormSubmit: (data) => {
     api
-      .editUserInfo()
-      .then(() => {
-        handleProfileFormSubmit(data);
+      .editUserInfo(userInfo._title, userInfo._description)
+      .then((res) => {
+        userInfo.setUserInfo({ title: res.name, description: res.about });
+        api.getUserInfo(userInfo._title, userInfo._description);
+        handleProfileFormSubmit({ title: data.name, description: data.about });
       })
       .catch((err) => {
         console.error(err);
