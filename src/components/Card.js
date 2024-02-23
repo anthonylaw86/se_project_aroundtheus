@@ -4,7 +4,7 @@ class Card {
     cardSelector,
     handleImageClick,
     handleDeleteClick,
-    handleLikeIcon
+    handleLikeClick
   ) {
     this._name = data.name;
     this._link = data.link;
@@ -13,11 +13,13 @@ class Card {
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
     this._handleDeleteClick = handleDeleteClick;
-    this._handleLikeIcon = handleLikeIcon;
+    this._handleLikeClick = handleLikeClick;
   }
 
   _setEventListeners() {
-    this._likeButton.addEventListener("click", () => this.handleLikeIcon());
+    this._likeButton.addEventListener("click", () =>
+      this._handleLikeClick(this)
+    );
 
     this._element
       .querySelector(".card__trash-button")
