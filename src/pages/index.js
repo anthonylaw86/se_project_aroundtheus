@@ -193,7 +193,7 @@ const updateAvatar = new PopupWithForm({
       .then((res) => {
         console.log(res);
         userInfo.setAvatar(res.avatar);
-        avatarFormSubmit.close();
+        updateAvatar.renderLoading(isLoading);
       })
       .catch((err) => {
         console.error(err);
