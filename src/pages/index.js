@@ -190,8 +190,8 @@ const updateAvatar = new PopupWithForm({
     console.log(avatar);
     api
       .updateAvatar((avatar = avatar.link))
-      .then(() => {
-        userInfo.setAvatar(avatar);
+      .then((res) => {
+        userInfo.setAvatar(res.avatar);
         avatarFormSubmit.close();
       })
       .catch((err) => {
