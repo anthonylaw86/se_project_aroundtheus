@@ -69,11 +69,13 @@ export default class Api {
     }).then(this.checkServerResponse);
   }
 
-  updateAvatar(avatar) {
+  updateAvatar(data) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
-      avatar: avatar.link,
+      body: JSON.stringify({
+        avatar: data.avatar,
+      }),
     }).then(this.checkServerResponse);
   }
 }

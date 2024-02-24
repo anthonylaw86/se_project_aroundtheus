@@ -189,8 +189,9 @@ const updateAvatar = new PopupWithForm({
   handleFormSubmit: (avatar) => {
     console.log(avatar);
     api
-      .updateAvatar((avatar = avatar.link))
+      .updateAvatar({ avatar: avatar.link })
       .then((res) => {
+        console.log(res);
         userInfo.setAvatar(res.avatar);
         avatarFormSubmit.close();
       })
