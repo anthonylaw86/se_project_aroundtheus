@@ -92,6 +92,7 @@
 
 .profile__image:hover {
   opacity: 0.2;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1100px) {
