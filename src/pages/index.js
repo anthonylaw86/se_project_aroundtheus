@@ -187,7 +187,6 @@ const profileEditPopup = new PopupWithForm({
 const updateAvatar = new PopupWithForm({
   popupSelector: "#update-avatar-modal",
   handleFormSubmit: (avatar) => {
-    updateAvatar.setEventListeners();
     api
       .updateAvatar({ avatar: avatar.link })
       .then((res) => {
@@ -200,8 +199,6 @@ const updateAvatar = new PopupWithForm({
       });
   },
 });
-
-// avatarEditPopup.open();
 
 /*EVENT HANDLERS*/
 
@@ -233,6 +230,7 @@ function avatarFormSubmit(avatar) {
 /*EVENT LISTENERS*/
 
 avatarElement.addEventListener("click", () => {
+  updateAvatar.setEventListeners();
   updateAvatar.open();
 });
 
