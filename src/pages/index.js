@@ -145,10 +145,10 @@ const newCardPopup = new PopupWithForm({
 });
 newCardPopup.setEventListeners();
 
-const avatarEditPopup = new PopupWithForm({
-  popupSelector: "#update-avatar-modal",
-});
-avatarEditPopup.setEventListeners();
+// const avatarEditPopup = new PopupWithForm({
+//   popupSelector: "#update-avatar-modal",
+// });
+// avatarEditPopup.setEventListeners();
 
 const deleteCardPopup = new PopupWithForm({
   popupSelector: "#delete-card-modal",
@@ -225,13 +225,13 @@ function handleProfileFormSubmit({ title, description }) {
 }
 
 function avatarFormSubmit(avatar) {
-  avatarEditPopup.close();
+  updateAvatar.close();
 }
 
 /*EVENT LISTENERS*/
 
 avatarElement.addEventListener("click", () => {
-  avatarEditPopup.open();
+  updateAvatar.open();
 });
 
 addNewCardButton.addEventListener("click", () => {
