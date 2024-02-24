@@ -84,7 +84,7 @@ function handleLikeIcon(card) {
 
 function updateAvatar(avatar) {
   avatarEditPopup.open();
-  avatarEditPopup.setSubmitAction(() => {
+  avatarEditPopup.setSubmitAction((avatarFormSubmit) => {
     api
       .updateAvatar(avatar)
       .then(() => {
