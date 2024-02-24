@@ -82,21 +82,6 @@ function handleLikeIcon(card) {
   }
 }
 
-function updateAvatar(avatar) {
-  avatarEditPopup.open();
-  avatarEditPopup.setSubmitAction((avatarFormSubmit) => {
-    api
-      .updateAvatar(avatar)
-      .then(() => {
-        userInfo.setAvatar(avatar);
-        avatarFormSubmit.close();
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  });
-}
-
 function handleDeleteClick(card) {
   deleteCardPopup.open();
   deleteCardPopup.setSubmitAction(() => {
@@ -186,7 +171,6 @@ api
 const profileEditPopup = new PopupWithForm({
   popupSelector: "#profile-edit-modal",
   handleFormSubmit: (data) => {
-    console.log(data);
     api
       .editUserInfo({ name: data.title, about: data.description })
       .then((res) => {
@@ -200,6 +184,23 @@ const profileEditPopup = new PopupWithForm({
       });
   },
 });
+const updateAvatar = new PopupWithForm({
+  popupSelector: "#update-avatar-modal",
+  handleFormSubmit: (avatar) => {
+    console.log(avatar);
+    api
+      .updateAvatar((avatar = avatar.link))
+      .then(() => {
+        userInfo.setAvatar(avatar);
+        avatarFormSubmit.close();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  },
+});
+
+// avatarEditPopup.open();
 
 /*EVENT HANDLERS*/
 
