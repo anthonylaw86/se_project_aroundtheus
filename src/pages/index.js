@@ -175,7 +175,7 @@ const profileEditPopup = new PopupWithForm({
       .editUserInfo({ name: data.title, about: data.description })
       .then((res) => {
         userInfo.setUserInfo({ title: res.name, description: res.about });
-        profileEditPopup.renderLoading();
+        profileEditPopup.renderLoading(true);
         handleProfileFormSubmit({ title: data.name, description: data.about });
         api.getUserInfo(userInfo._title, userInfo._description);
       })
@@ -193,7 +193,7 @@ const updateAvatar = new PopupWithForm({
       .then((res) => {
         console.log(res);
         userInfo.setAvatar(res.avatar);
-        updateAvatar.renderLoading(isLoading);
+        updateAvatar.renderLoading(true);
       })
       .catch((err) => {
         console.error(err);
@@ -213,6 +213,7 @@ function handleAddCardFormSubmit({ name, link }) {
     .then((res) => {
       const newCard = renderCard(res);
       cardsWrap.addItem(newCard);
+      newCardPopup.renderLoading(true);
       newCardPopup.close();
       newCardPopup.reset();
     })
