@@ -23,9 +23,9 @@ class PopupWithForm extends Popup {
 
   renderLoading(isLoading) {
     if (isLoading) {
-      this._saveButton.textContent("Saving...");
+      this._saveButton.textContent = "Saving...";
     } else {
-      this._saveButton.textContent("Save");
+      this._saveButton.textContent = "Save";
     }
   }
 
