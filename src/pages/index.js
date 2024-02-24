@@ -187,7 +187,7 @@ const profileEditPopup = new PopupWithForm({
 const updateAvatar = new PopupWithForm({
   popupSelector: "#update-avatar-modal",
   handleFormSubmit: (avatar) => {
-    console.log(avatar);
+    updateAvatar.setEventListeners();
     api
       .updateAvatar({ avatar: avatar.link })
       .then((res) => {
