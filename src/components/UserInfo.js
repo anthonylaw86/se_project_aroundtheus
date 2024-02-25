@@ -23,6 +23,12 @@ class UserInfo {
   setAvatar(avatar) {
     this._avatar.src = avatar;
   }
+
+  getAvatar(avatar) {
+    return {
+      avatar: this._avatar.src,
+    };
+  }
 }
 
 export default UserInfo;

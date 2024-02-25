@@ -158,6 +158,7 @@ deleteCardPopup.setEventListeners();
 const userInfo = new UserInfo({
   profileTitleSelector: ".profile__title",
   profileDescriptionSelector: ".profile__description",
+  avatarSelector: ".profile__image",
 });
 api
   .getUserInfo(userInfo._title, userInfo._description)
@@ -193,6 +194,9 @@ const updateAvatar = new PopupWithForm({
         console.log(res);
         userInfo.setAvatar(res.avatar);
         updateAvatar.renderLoading(true);
+        // api.getAvatar({ avatar: avatar.link });
+        // userInfo.getAvatar(res.avatar);
+        updateAvatar.close();
       })
       .catch((err) => {
         console.error(err);
@@ -230,9 +234,10 @@ function avatarFormSubmit(avatar) {
 /*EVENT LISTENERS*/
 
 avatarElement.addEventListener("click", () => {
-  updateAvatar.setEventListeners();
   updateAvatar.open();
 });
+
+updateAvatar.setEventListeners();
 
 addNewCardButton.addEventListener("click", () => {
   addFormValidator.toggleButtonState();
