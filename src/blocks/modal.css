@@ -155,8 +155,9 @@
   line-height: 21.78px;
 }
 
-.modal__button:disabled {
-  opacity: 0.8;
+.modal__button:disabled:hover {
+  opacity: 0.2;
+  cursor: auto;
 }
 
 .modal__button:hover {

@@ -145,11 +145,6 @@ const newCardPopup = new PopupWithForm({
 });
 newCardPopup.setEventListeners();
 
-// const avatarEditPopup = new PopupWithForm({
-//   popupSelector: "#update-avatar-modal",
-// });
-// avatarEditPopup.setEventListeners();
-
 const deleteCardPopup = new PopupWithForm({
   popupSelector: "#delete-card-modal",
 });
@@ -173,35 +168,36 @@ api
 const profileEditPopup = new PopupWithForm({
   popupSelector: "#profile-edit-modal",
   handleFormSubmit: (data) => {
+    profileEditPopup.renderLoading(true);
     api
       .editUserInfo({ name: data.title, about: data.description })
       .then((res) => {
         userInfo.setUserInfo({ title: res.name, description: res.about });
-        profileEditPopup.renderLoading(true);
-        handleProfileFormSubmit({ title: data.name, description: data.about });
-        api.getUserInfo(userInfo._title, userInfo._description);
       })
       .catch((err) => {
         console.error(err);
+      })
+      .finally(() => {
+        profileEditPopup.renderloading(false);
       });
   },
 });
 const updateAvatar = new PopupWithForm({
   popupSelector: "#update-avatar-modal",
   handleFormSubmit: (avatar) => {
+    updateAvatar.renderLoading(true);
     api
       .updateAvatar({ avatar: avatar.link })
       .then((res) => {
         console.log(res);
         userInfo.setAvatar(res.avatar);
-        updateAvatar.renderLoading(true);
-        // api.getAvatar({ avatar: avatar.link });
-        // userInfo.getAvatar(res.avatar);
-        // handleFormSubmit({ avatar: avatar.link });
         updateAvatar.close();
       })
       .catch((err) => {
         console.error(err);
+      })
+      .finally(() => {
+        updateAvatar.renderloading(false);
       });
   },
 });
@@ -211,17 +207,20 @@ const updateAvatar = new PopupWithForm({
 profileEditPopup.setEventListeners();
 
 function handleAddCardFormSubmit({ name, link }) {
+  newCardPopup.renderLoading(true);
   api
     .createNewCard(name, link)
     .then((res) => {
       const newCard = renderCard(res);
       cardsWrap.addItem(newCard);
-      newCardPopup.renderLoading(true);
       newCardPopup.close();
       newCardPopup.reset();
     })
     .catch((err) => {
       console.error(err);
+    })
+    .finally((isLoading) => {
+      newCardPopup.renderloading(false);
     });
 }
 
