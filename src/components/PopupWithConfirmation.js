@@ -1,8 +1,9 @@
 import Popup from "./Popup.js";
 
 class PopupWithConfirmation extends Popup {
-  constructor({ handleFormSubmit }) {
+  constructor({ popupSelector, handleFormSubmit }) {
     super({ popupSelector });
+    this._popupForm = this._popupElement.querySelector(".modal__form");
     this._handleFormSubmit = handleFormSubmit;
   }
 
@@ -14,9 +15,7 @@ class PopupWithConfirmation extends Popup {
     super.setEventListeners();
     this._popupForm.addEventListener("submit", (e) => {
       e.preventDefault();
-
-      const values = this._getInputValues();
-      this._handleFormSubmit(values);
+      this._handleFormSubmit();
     });
   }
 }

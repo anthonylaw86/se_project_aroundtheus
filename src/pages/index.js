@@ -83,16 +83,22 @@ function handleLikeIcon(card) {
   }
 }
 
-let popupWithConfirm = new PopupWithConfirmation();
+let popupWithConfirm = new PopupWithConfirmation({
+  popupSelector: "#delete-card-modal",
+  handleFormSubmit: () => {
+    console.log(123);
+  },
+});
+popupWithConfirm.setEventListeners();
 
 function handleDeleteClick(card) {
-  deleteCardPopup.open();
+  popupWithConfirm.open();
   popupWithConfirm.setSubmitAction(() => {
     api
       .deleteCard(card.id)
       .then(() => {
         card.removeCard();
-        deleteCardPopup.close();
+        popupWithConfirm.close();
       })
       .catch((err) => {
         console.error(err);
@@ -148,16 +154,12 @@ const newCardPopup = new PopupWithForm({
 });
 newCardPopup.setEventListeners();
 
-const deleteCardPopup = new PopupWithForm({
-  popupSelector: "#delete-card-modal",
-});
-deleteCardPopup.setEventListeners();
-
 const userInfo = new UserInfo({
   profileTitleSelector: ".profile__title",
   profileDescriptionSelector: ".profile__description",
   avatarSelector: ".profile__image",
 });
+Promise.all([userInfo]);
 api
   .getUserInfo(userInfo._title, userInfo._description)
   .then((res) => {
