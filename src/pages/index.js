@@ -164,6 +164,7 @@ api
   .getUserInfo(userInfo._title, userInfo._description)
   .then((res) => {
     userInfo.setUserInfo({ title: res.name, description: res.about });
+    userInfo.setAvatar(res.avatar);
   })
   .catch((err) => {
     console.error(err);
@@ -196,6 +197,7 @@ const updateAvatar = new PopupWithForm({
         updateAvatar.renderLoading(true);
         // api.getAvatar({ avatar: avatar.link });
         // userInfo.getAvatar(res.avatar);
+        // handleFormSubmit({ avatar: avatar.link });
         updateAvatar.close();
       })
       .catch((err) => {

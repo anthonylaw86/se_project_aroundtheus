@@ -78,17 +78,7 @@ export default class Api {
       }),
     }).then(this.checkServerResponse);
   }
-
-  //   getAvatar(avatar) {
-  //     return fetch(`${this._baseUrl}/users/me/avatar`, {
-  //       method: "GET",
-  //       headers: this._headers,
-  //       avatar: avatar.src,
-  //     }).then(this.checkServerResponse);
-  //   }
 }
-
-// other methods for working with the API
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
