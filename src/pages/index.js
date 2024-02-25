@@ -7,6 +7,7 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import Constants from "../utils/constants.js";
 import Api from "../components/Api.js";
+import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 
 /*SERVER REQUESTS*/
 
@@ -82,9 +83,11 @@ function handleLikeIcon(card) {
   }
 }
 
+let popupWithConfirm = new PopupWithConfirmation();
+
 function handleDeleteClick(card) {
   deleteCardPopup.open();
-  deleteCardPopup.setSubmitAction(() => {
+  popupWithConfirm.setSubmitAction(() => {
     api
       .deleteCard(card.id)
       .then(() => {

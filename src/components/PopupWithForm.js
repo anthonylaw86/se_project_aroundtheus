@@ -36,7 +36,6 @@ class PopupWithForm extends Popup {
 
       const values = this._getInputValues();
       this._handleFormSubmit(values);
-      console.log(values);
     });
   }
 
