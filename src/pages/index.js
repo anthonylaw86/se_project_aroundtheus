@@ -183,7 +183,8 @@ const profileEditPopup = new PopupWithForm({
         console.error(err);
       })
       .finally(() => {
-        profileEditPopup.renderloading(false);
+        profileEditPopup.renderLoading(false);
+        profileEditPopup.close();
       });
   },
 });
@@ -202,7 +203,7 @@ const updateAvatar = new PopupWithForm({
         console.error(err);
       })
       .finally(() => {
-        updateAvatar.renderloading(false);
+        updateAvatar.renderLoading(false);
       });
   },
 });
@@ -224,8 +225,8 @@ function handleAddCardFormSubmit({ name, link }) {
     .catch((err) => {
       console.error(err);
     })
-    .finally((isLoading) => {
-      newCardPopup.renderloading(false);
+    .finally(() => {
+      newCardPopup.renderLoading(false);
     });
 }
 
