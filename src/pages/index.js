@@ -159,7 +159,7 @@ const userInfo = new UserInfo({
   profileDescriptionSelector: ".profile__description",
   avatarSelector: ".profile__image",
 });
-Promise.all([userInfo]);
+Promise.all([api.getUserInfo(), api.getInitialCards(), userInfo.setAvatar()]);
 api
   .getUserInfo(userInfo._title, userInfo._description)
   .then((res) => {
@@ -178,13 +178,13 @@ const profileEditPopup = new PopupWithForm({
       .editUserInfo({ name: data.title, about: data.description })
       .then((res) => {
         userInfo.setUserInfo({ title: res.name, description: res.about });
+        profileEditPopup.close();
       })
       .catch((err) => {
         console.error(err);
       })
       .finally(() => {
         profileEditPopup.renderLoading(false);
-        profileEditPopup.close();
       });
   },
 });
