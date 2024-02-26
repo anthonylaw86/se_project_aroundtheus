@@ -5,6 +5,7 @@ class PopupWithConfirmation extends Popup {
     super({ popupSelector });
     this._popupForm = this._popupElement.querySelector(".modal__form");
     this._handleFormSubmit = handleFormSubmit;
+    this._saveButton = this._popupElement.querySelector(".modal__button");
   }
 
   setSubmitAction(handleFormSubmit) {

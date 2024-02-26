@@ -94,6 +94,7 @@ popupWithConfirm.setEventListeners();
 function handleDeleteClick(card) {
   popupWithConfirm.open();
   popupWithConfirm.setSubmitAction(() => {
+    popupWithConfirm.renderLoading(true);
     api
       .deleteCard(card.id)
       .then(() => {
@@ -102,6 +103,9 @@ function handleDeleteClick(card) {
       })
       .catch((err) => {
         console.error(err);
+      })
+      .finally(() => {
+        popupWithConfirm.renderLoading(false);
       });
   });
 }
@@ -159,7 +163,7 @@ const userInfo = new UserInfo({
   profileDescriptionSelector: ".profile__description",
   avatarSelector: ".profile__image",
 });
-Promise.all([api.getUserInfo(), api.getInitialCards(), userInfo.setAvatar()]);
+Promise.all([api.getUserInfo(), api.getInitialCards()]);
 api
   .getUserInfo(userInfo._title, userInfo._description)
   .then((res) => {
