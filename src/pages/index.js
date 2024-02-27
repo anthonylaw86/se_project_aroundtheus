@@ -163,7 +163,7 @@ const userInfo = new UserInfo({
   profileDescriptionSelector: ".profile__description",
   avatarSelector: ".profile__image",
 });
-Promise.all([api.getUserInfo(), api.getInitialCards()]);
+
 api
   .getUserInfo(userInfo._title, userInfo._description)
   .then((res) => {
