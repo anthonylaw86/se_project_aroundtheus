@@ -71,13 +71,17 @@
   max-width: 415px;
 }
 
+.profile__avatar-container {
+  position: relative;
+  margin-right: 24px;
+}
+
 .profile__image {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
   background-position: center;
-  margin-right: 24px;
 }
 
 .profile__image-edit {
@@ -85,8 +89,9 @@
   height: 26px;
   position: absolute;
   background-color: transparent;
-  margin: auto;
-  margin-left: 47px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: -1;
 }
 
@@ -121,11 +126,6 @@
     margin-right: auto;
     margin-top: 36px;
     margin-bottom: 36px;
-  }
-
-  .profile__image-edit {
-    margin-top: 45px;
-    margin-right: 65px;
   }
 }
 
