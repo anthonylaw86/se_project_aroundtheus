@@ -29,6 +29,26 @@
   max-height: 100%;
 }
 
+.modal__delete-card-container {
+  background-color: #fff;
+  max-width: 430px;
+  max-height: 181px;
+  margin: auto;
+  position: relative;
+  border-radius: 10px;
+  padding: 34px 36px 36px;
+}
+
+.modal__update-avatar-container {
+  background-color: #fff;
+  margin: auto;
+  position: relative;
+  max-width: 430px;
+  max-height: 272px;
+  padding: 34px 36px 36px;
+  border-radius: 10px;
+}
+
 .modal__close {
   width: 40px;
   height: 40px;
@@ -51,6 +71,24 @@
   line-height: 29.05px;
   margin-top: 0;
   margin-bottom: 50px;
+}
+
+.modal__heading-question {
+  color: #000;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.modal__heading-statement {
+  color: #000;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 54px;
 }
 
 .modal__form {
@@ -76,6 +114,11 @@
   padding-bottom: 10.26px;
 }
 
+.modal__input_type_url {
+  padding: 0;
+  margin-bottom: 35px;
+}
+
 .modal__input_type_error {
   margin-top: 13px;
   margin-bottom: 0;
@@ -94,10 +137,27 @@
   margin-top: 13px;
   border-style: none;
   border-radius: 2px;
+  padding: 0;
 }
 
-.modal__button:disabled {
-  opacity: 0.8;
+.modal__confirmation-button {
+  background-color: #000;
+  color: #fff;
+  width: 358px;
+  height: 50px;
+  border-radius: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 38px;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21.78px;
+}
+
+.modal__button:disabled:hover {
+  opacity: 0.2;
+  cursor: auto;
 }
 
 .modal__button:hover {
