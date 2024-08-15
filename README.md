@@ -23,3 +23,6 @@ Can't wait to create more.
 ## Page Link
 
 https://anthonylaw86.github.io/se_project_aroundtheus/
+
+![Screenshot 2024-08-06 at 10 55 38 AM](https://github.com/user-attachments/assets/7f57fe25-672b-4ab7-b1dc-36414a86c333)
+![Screenshot 2024-08-06 at 10 55 56 AM](https://github.com/user-attachments/assets/dda41094-a113-478b-a4d5-1d2c73684f69)
